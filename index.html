@@ -17,7 +17,17 @@
             <h1>Choose a user name</h1>
             <label>User Name:</label>
             <input type="text"><br>
-            <input type="submit" value="Start">
+            <input type="submit" value="Start" onclick="addTemplate(play,left_section)">
+        </div>
+    </template>
+    <template id="play">
+        <button onclick="addTemplate(finish,left_section)">TemplateTest</button>
+    </template>
+    <template id="finish">
+        <div>
+            <h1>Win/Lose Title</h1>
+            <p>Win/Lose Text</p>
+            <button onclick="registrationTemplate()">Play Again</button>
         </div>
     </template>
     <template id="score">
@@ -31,17 +41,8 @@
             </dl>
         </div>
     </template>
-    <template id="play">
-        
-    </template>
-    <template id="finish">
-        <div>
-            <h1>Win/Lose Title</h1>
-            <p>Win/Lose Text</p>
-            <button>Play Again</button>
-        </div>
-    </template>
 </body>
+<script src="assets/file/templates.js"></script>
 <script>
     let leftTemplate = document.getElementById('registration');
     let leftTemplateContent = leftTemplate.content;
