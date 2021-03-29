@@ -4,15 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Memory Game</title>
 </head>
 <body>
     <main>
-
+        <section id="left_section"></section>
+        <section id="right_section"></section>
     </main>
-
-    <aside>
-        hola
-    </aside>
+    <template id="registration">
+        <div class="container-registration">
+            <h1>Choose a user name</h1>
+            <label>User Name:</label>
+            <input type="text"><br>
+            <input type="submit" value="Start">
+        </div>
+    </template>
+    <template id="score">
+        <div>
+            <h2>User Scores</h2>
+            <dl>
+                <dt>User1</dt>
+                <dd>X seconds</dd>
+                <dt>User2</dt>
+                <dd>Y seconds</dd>
+            </dl>
+        </div>
+    </template>
+    <template id="play">
+        
+    </template>
+    <template id="finish">
+        <div>
+            <h1>Win/Lose Title</h1>
+            <p>Win/Lose Text</p>
+            <button>Play Again</button>
+        </div>
+    </template>
 </body>
+<script>
+    let leftTemplate = document.getElementById('registration');
+    let leftTemplateContent = leftTemplate.content;
+    document.getElementById('left_section').appendChild(leftTemplateContent);
+    let rightTemplate = document.getElementById('score');
+    let rightTemplateContent = rightTemplate.content;
+    document.getElementById('right_section').appendChild(rightTemplateContent);
+</script>
 </html>
