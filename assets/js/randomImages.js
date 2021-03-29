@@ -1,5 +1,4 @@
-const arrImg = [
-  {
+const arrImg = [{
     name: "yellowShell",
     img: "./assets/img/imagen1.jpg",
   },
@@ -33,6 +32,7 @@ const arrImg = [
   },
 ];
 
+
 /*
  * random images in DOM
  * @ Author:
@@ -56,32 +56,35 @@ function randomImages(arrayFrom) {
  * inject cover image in DOM
  * @ Author:
  */
+
 const board = document.getElementById("board");
 const arrSorted = randomImages(arrImg);
-let tCounter = 0;
 // inject in DOM
-arrSorted.forEach((element, i) => {
-  const img = document.createElement("img");
-  // add cover image
-  setTimeout(() => {
-    img.setAttribute("src", "./assets/img/imagen4.jpg");
-    // add eventListeners
-    img.addEventListener("click", flipImage, true);
-    // set time count score
-    startCounter();
-  }, 3000);
-  img.setAttribute("src", element.img);
-  img.setAttribute("data-id", i);
-  img.setAttribute("alt", "mario cover");
-  // img.addEventListener("click", flipImage);
-  board.appendChild(img);
-});
+function setUpGame() {
+  arrSorted.forEach((element, i) => {
+    const img = document.createElement("img");
+    // add cover image
+    setTimeout(() => {
+      //img.setAttribute("src", "./assets/img/imagen4.jpg");
+      // add eventListeners
+      img.addEventListener("click", flipImage, true);
+      // set time count score
+      gameStart();
+    }, 3000);
+    img.setAttribute("src", element.img);
+    img.setAttribute("data-id", i);
+    img.setAttribute("alt", "mario cover");
+    // img.addEventListener("click", flipImage);
+    board.appendChild(img);
+  });
+}
 
 /*
  * function flip images
  * @ Author:
  */
 let arrChosen = [];
+
 function flipImage(event) {
   const objChosen = {};
   const imgId = event.target.dataset.id;
@@ -107,6 +110,7 @@ function flipImage(event) {
  * @ Author:
  */
 const idChosen = [];
+
 function checkMatch() {
   const images = document.querySelectorAll("img[data-id]");
   // if match
@@ -162,28 +166,14 @@ function removeImagesClickEvent() {
  */
 function checkVictory() {
   if (idChosen.length === arrSorted.length) {
-    alert(`Ganó en ${tCounter} segundos`);
-    stopCounter();
+    alert(`Ganó en ${gameTime()} segundos`);
+    /*--------------*/
+    setTime(gameTime());
+    scoring(objUser);
+    randomImages(arrImg);
+    setUpGame();
   }
 }
 
-/*
- * ...
- * @ Author:
- */
-let timeScoring = 0;
-function startCounter() {
-  timeScoring = setInterval(() => {
-    tCounter++;
-    console.clear()
-    console.log(tCounter)
-  }, 1000);
-}
-
-/*
- * ...
- * @ Author:
- */
-function stopCounter() {
-  clearInterval(timeScoring);
-}
+// test
+setUpGame();
