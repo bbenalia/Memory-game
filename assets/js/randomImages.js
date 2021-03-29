@@ -92,7 +92,10 @@ function flipImage(event) {
   // if have 2 images
   if (arrChosen.length >= 2) {
     removeImagesClickEvent();
-    setTimeout(checkMatch, 500);
+    setTimeout(() => {
+      checkMatch();
+      addImagesClickEvent();
+    }, 500);
     console.log(arrChosen);
   }
 }
@@ -101,6 +104,7 @@ function flipImage(event) {
  * this checks for matches images
  * @ Author:
  */
+const idChosen = [];
 function checkMatch() {
   const images = document.querySelectorAll("img[data-id]");
   // if match
@@ -109,14 +113,17 @@ function checkMatch() {
     arrChosen[0].id !== arrChosen[1].id
   ) {
     alert("Match");
-
+    images[arrChosen[0].id].removeEventListener("click", flipImage, true);
+    images[arrChosen[1].id].removeEventListener("click", flipImage, true);
+    // store matched id's
+    idChosen.push(arrChosen[1].id);
+    idChosen.push(arrChosen[0].id);
   } else {
     images[arrChosen[0].id].src = "./assets/img/imagen4.jpg";
     images[arrChosen[1].id].src = "./assets/img/imagen4.jpg";
   }
   // reset
   arrChosen = [];
-  addImagesClickEvent();
 }
 
 /*
@@ -125,6 +132,8 @@ function checkMatch() {
  */
 function addImagesClickEvent() {
   const images = document.querySelectorAll("img[data-id]");
+
+  // const arr = idChosen.filter((v) => v === element.dataset.id);
   images.forEach((element) => {
     element.addEventListener("click", flipImage, true);
   });
