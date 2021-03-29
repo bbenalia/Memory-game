@@ -17,17 +17,17 @@
             <h1>Choose a user name</h1>
             <label>User Name:</label>
             <input type="text"><br>
-            <input type="submit" value="Start" onclick="addTemplate(play,left_section)">
+            <input type="submit" value="Start" onclick="swapTemplate('play','left_section')">
         </div>
     </template>
     <template id="play">
-        <button onclick="addTemplate(finish,left_section)">TemplateTest</button>
+        <button onclick="swapTemplate('finish','left_section')">TemplateTest</button>
     </template>
     <template id="finish">
         <div>
             <h1>Win/Lose Title</h1>
             <p>Win/Lose Text</p>
-            <button onclick="registrationTemplate()">Play Again</button>
+            <button onclick="swapTemplate('registration','left_section')">Play Again</button>
         </div>
     </template>
     <template id="score">
@@ -44,11 +44,7 @@
 </body>
 <script src="assets/file/templates.js"></script>
 <script>
-    let leftTemplate = document.getElementById('registration');
-    let leftTemplateContent = leftTemplate.content;
-    document.getElementById('left_section').appendChild(leftTemplateContent);
-    let rightTemplate = document.getElementById('score');
-    let rightTemplateContent = rightTemplate.content;
-    document.getElementById('right_section').appendChild(rightTemplateContent);
+    swapTemplate('registration','left_section');
+    swapTemplate('score','right_section');
 </script>
 </html>
