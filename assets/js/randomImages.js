@@ -58,6 +58,7 @@ function randomImages(arrayFrom) {
  */
 const board = document.getElementById("board");
 const arrSorted = randomImages(arrImg);
+let tCounter = 0;
 // inject in DOM
 arrSorted.forEach((element, i) => {
   const img = document.createElement("img");
@@ -66,6 +67,8 @@ arrSorted.forEach((element, i) => {
     img.setAttribute("src", "./assets/img/imagen4.jpg");
     // add eventListeners
     img.addEventListener("click", flipImage, true);
+    // set time count score
+    startCounter();
   }, 3000);
   img.setAttribute("src", element.img);
   img.setAttribute("data-id", i);
@@ -94,7 +97,6 @@ function flipImage(event) {
     removeImagesClickEvent();
     setTimeout(() => {
       checkMatch();
-      addImagesClickEvent();
     }, 500);
     console.log(arrChosen);
   }
@@ -112,18 +114,21 @@ function checkMatch() {
     arrChosen[0].name === arrChosen[1].name &&
     arrChosen[0].id !== arrChosen[1].id
   ) {
-    alert("Match");
+    // alert("Match");
     images[arrChosen[0].id].removeEventListener("click", flipImage, true);
     images[arrChosen[1].id].removeEventListener("click", flipImage, true);
     // store matched id's
-    idChosen.push(arrChosen[1].id);
     idChosen.push(arrChosen[0].id);
+    idChosen.push(arrChosen[1].id);
   } else {
     images[arrChosen[0].id].src = "./assets/img/imagen4.jpg";
     images[arrChosen[1].id].src = "./assets/img/imagen4.jpg";
   }
+  // win
+  checkVictory();
   // reset
   arrChosen = [];
+  addImagesClickEvent();
 }
 
 /*
@@ -132,10 +137,11 @@ function checkMatch() {
  */
 function addImagesClickEvent() {
   const images = document.querySelectorAll("img[data-id]");
-
-  // const arr = idChosen.filter((v) => v === element.dataset.id);
+  //
   images.forEach((element) => {
-    element.addEventListener("click", flipImage, true);
+    if (!idChosen.includes(element.dataset.id)) {
+      element.addEventListener("click", flipImage, true);
+    }
   });
 }
 
@@ -148,4 +154,36 @@ function removeImagesClickEvent() {
   images.forEach((element) => {
     element.removeEventListener("click", flipImage, true);
   });
+}
+
+/*
+ * this check for victory
+ * @ Author:
+ */
+function checkVictory() {
+  if (idChosen.length === arrSorted.length) {
+    alert(`Ganó en ${tCounter} segundos`);
+    stopCounter();
+  }
+}
+
+/*
+ * ...
+ * @ Author:
+ */
+let timeScoring = 0;
+function startCounter() {
+  timeScoring = setInterval(() => {
+    tCounter++;
+    console.clear()
+    console.log(tCounter)
+  }, 1000);
+}
+
+/*
+ * ...
+ * @ Author:
+ */
+function stopCounter() {
+  clearInterval(timeScoring);
 }
