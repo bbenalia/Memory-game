@@ -12,7 +12,7 @@ export function gameTime() {
   return time;
 }
 
-function convertTime(milisec) {
+export function convertTime(milisec) {
   let minutes = ~~(milisec / 60000);
   let seconds = ~~(milisec / 1000) - minutes * 60;
   return {
