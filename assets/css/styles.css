@@ -136,7 +136,6 @@ body > main {
     display: flex;
     align-items: center;
     flex-direction: column;
-    /* padding: 4%; */
     height: 100%;
     justify-content: center;
   }
@@ -144,29 +143,15 @@ body > main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
-    padding: 4%;
+    padding: 0;
     height: 100%;
     
   }
   .container-grid > div{
-    background-color: red;
     width: 23.5%;
     flex:none;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
-  /*width: 22%;
-    float:left;
-    margin-right: 2%;
-    margin-bottom: 2%;
-    &:nth-child(4n){
-        margin-right: 0;
-        clear: right;
-    }
-    &:nth-child(4n+1){
-        clear: left;
-    }*/
