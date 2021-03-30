@@ -170,7 +170,7 @@ function removeImagesClickEvent() {
  */
 export function checkVictory() {
   if (idChosen.length === arrSorted.length) {
-    // alert(`Ganó en ${gameTime()} segundos`);
+    alert(`Ganó...`);
     // reset ids matched
     idChosen.splice(0, idChosen.length);
     // calculate time
