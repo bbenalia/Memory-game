@@ -45,3 +45,7 @@ export function scoring() {
 export function getScoring() {
   return arrUser;
 }
+
+export function getCurrentPlayer(){
+  return objUser;
+}
