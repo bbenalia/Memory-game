@@ -113,7 +113,24 @@ body > main {
   align-items: center;
   justify-content: center;
 }
+#dataUser {
+  /* background-color: aqua;
+  border-radius: 20px;
+  margin: 0% 1%;
+  width: 30%;
+  max-width: 800px;
+  height: 120px;
+  min-width: 200px; */
+  background-color: aqua;
+  position: absolute;
+  top: -120px;
+  left: calc(50% - (200px / 2));
+  border-radius: 20px;
+  height: 100px;
+  min-width: 200px;
+}
 #left_section {
+  position: relative;
   background-color: white;
   border-radius: 20px;
   padding: 0%;
@@ -122,6 +139,8 @@ body > main {
   max-width: 800px;
   height: 70%;
   min-width: 200px;
+  overflow-x: visible;
+  z-index: 1;
 }
 #right_section {
   background-color: white;
@@ -157,7 +176,7 @@ body > main {
   justify-content: center;
   align-items: center;
 }
-.nav{
+.nav {
   position: fixed;
   top: 0;
   right: 0;
@@ -166,7 +185,11 @@ body > main {
   height: 60px;
   padding: 1%;
 }
-.navBar{
+#nav {
+  display: none;
+  z-index: 20;
+}
+.navBar {
   position: fixed;
   top: 0;
   right: 0;
@@ -174,13 +197,60 @@ body > main {
   width: 90%;
   height: 70%;
   padding: 1%;
-  
 }
-.navBar>div>img{
+.navBar > div > img {
   position: fixed;
   right: 0;
   width: 40px;
   padding: 1%;
+}
+/*  
+=============================
+Media queries
+=============================
+*/
+/* Mobile */
+@media only screen and (max-width: 468px) {
+  #right_section {
+    display: none;
+  }
+  #nav {
+    display: block;
+  }
 
+  .container-grid {
+    /* align-items: center; */
+    height: 100%;
+    max-height: 500px;
+  }
 
+  #left_section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    height: 70%;
+    min-width: 200px;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 469px) {
+  #right_section {
+    display: none;
+  }
+  #nav {
+    display: block;
+  }
+}
+
+/* PC */
+@media only screen and (min-width: 946px) {
+  #right_section {
+    display: block;
+  }
+  #nav {
+    display: none;
+  }
 }

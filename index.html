@@ -19,23 +19,19 @@
                 <div class="containers">
                     <img src="assets/img/close.svg" alt="">
                     <h2>User Scores</h2>
-                    <dl>
-                        <dt>User1</dt>
-                        <dd>X seconds</dd>
-                        <dt>User2</dt>
-                        <dd>Y seconds</dd>
-                    </dl>
+                    <ul class="list">
+                        <!-- <li>Name: <strong>Time</strong></li> -->
+                    </ul>
                 </div>
             </div>
         </section>
-        <section id="left_section"></section>
+
+        <section id="left_section">
+            <div id="dataUser"></div>
+        </section>
         <section id="right_section"></section>
     </main>
 
-    <!-- Templates -->
-    <template id="nav">
-        
-    </template>
     <template id="registration">
         <div class="container">
             <h1>Choose a user name</h1>
@@ -60,6 +56,7 @@
         </div>
     </template>
     <template id="play">
+        <div id="dataUser"></div>
         <div id="board" class="container-grid">
         </div>
     </template>
