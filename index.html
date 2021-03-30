@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Memory Game</title>
 </head>
+
 <body>
     <main>
         <section id="left_section"></section>
@@ -17,7 +19,17 @@
             <h1>Choose a user name</h1>
             <label>User Name:</label>
             <input type="text"><br>
-            <input type="submit" value="Start">
+            <input type="submit" value="Start" onclick="swapTemplate('play','left_section')">
+        </div>
+    </template>
+    <template id="play">
+        <button onclick="swapTemplate('finish','left_section')">TemplateTest</button>
+    </template>
+    <template id="finish">
+        <div>
+            <h1>Win/Lose Title</h1>
+            <p>Win/Lose Text</p>
+            <button onclick="swapTemplate('registration','left_section')">Play Again</button>
         </div>
     </template>
     <template id="score">
@@ -59,12 +71,12 @@
         </div>
     </template>
 </body>
+
+<script src="assets/file/templates.js"></script>
+
 <script>
-    let leftTemplate = document.getElementById('play');
-    let leftTemplateContent = leftTemplate.content;
-    document.getElementById('left_section').appendChild(leftTemplateContent);
-    let rightTemplate = document.getElementById('score');
-    let rightTemplateContent = rightTemplate.content;
-    document.getElementById('right_section').appendChild(rightTemplateContent);
+    swapTemplate('registration', 'left_section');
+    swapTemplate('score', 'right_section');
 </script>
+
 </html>
