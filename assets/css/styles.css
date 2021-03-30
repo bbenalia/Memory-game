@@ -45,7 +45,7 @@ section,
 
 h1 {
   font-family: "Ubuntu", sans-serif;
-  font-size: 40px;
+  font-size: 1.5em;
   font-weight: 500;
   color: #242424;
 }
@@ -156,4 +156,31 @@ body > main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.nav{
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: tomato;
+  width: 60px;
+  height: 60px;
+  padding: 1%;
+}
+.navBar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: tomato;
+  width: 90%;
+  height: 70%;
+  padding: 1%;
+  
+}
+.navBar>div>img{
+  position: fixed;
+  right: 0;
+  width: 40px;
+  padding: 1%;
+
+
 }

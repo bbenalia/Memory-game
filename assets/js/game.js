@@ -67,3 +67,12 @@ function handleStartAgain() {
     document.getElementById("btnStart").addEventListener("click", startGame);
   }, 1000);
 }
+
+document.getElementById("close").addEventListener("click",function(){
+  var closed = document.getElementById("close");
+  closed.style.display = "none";
+});
+document.getElementById("open").addEventListener("click",function(){
+  var closed = document.getElementById("close");
+  closed.style.display = "block";
+});
