@@ -20,3 +20,12 @@ function prueba2() {
     swapTemplate("finish", "left_section");
   }
 }
+
+document.getElementById("close").addEventListener("click",function(){
+  var closed = document.getElementById("close");
+  closed.style.display = "none";
+});
+document.getElementById("open").addEventListener("click",function(){
+  var closed = document.getElementById("close");
+  closed.style.display = "block";
+});
