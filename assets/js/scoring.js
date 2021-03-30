@@ -39,6 +39,6 @@ function scoring(obj) {
     //document.getElementById().innerHTML;;
 
 
-    console.clear();
+    console.log("*************************");
     console.log(arrUser);
 }

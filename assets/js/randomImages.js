@@ -1,4 +1,5 @@
-const arrImg = [{
+const arrImg = [
+  {
     name: "yellowShell",
     img: "./assets/img/imagen1.jpg",
   },
@@ -32,7 +33,6 @@ const arrImg = [{
   },
 ];
 
-
 /*
  * random images in DOM
  * @ Author:
@@ -58,7 +58,7 @@ function randomImages(arrayFrom) {
  */
 
 const board = document.getElementById("board");
-const arrSorted = randomImages(arrImg);
+let arrSorted = randomImages(arrImg);
 // inject in DOM
 function setUpGame() {
   arrSorted.forEach((element, i) => {
@@ -118,7 +118,7 @@ function checkMatch() {
     arrChosen[0].name === arrChosen[1].name &&
     arrChosen[0].id !== arrChosen[1].id
   ) {
-    // alert("Match");
+    console.log("Match", idChosen);
     images[arrChosen[0].id].removeEventListener("click", flipImage, true);
     images[arrChosen[1].id].removeEventListener("click", flipImage, true);
     // store matched id's
@@ -168,12 +168,21 @@ function checkVictory() {
   if (idChosen.length === arrSorted.length) {
     alert(`Ganó en ${gameTime()} segundos`);
     /*--------------*/
+    const images = document.querySelectorAll("img[data-id]");
+    images.forEach((element) => {
+      element.remove();
+    });
+    idChosen.splice(0, idChosen.length);
     setTime(gameTime());
     scoring(objUser);
-    randomImages(arrImg);
-    setUpGame();
+
+    setTimeout(() => {
+      arrSorted = randomImages(arrImg);
+      setUpGame();
+    }, 1000);
   }
 }
 
 // test
+arrSorted = randomImages(arrImg);
 setUpGame();
