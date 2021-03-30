@@ -1,4 +1,4 @@
-export const arrUser = [];
+const arrUser = [];
 const objUser = {};
 let startDate;
 
@@ -40,6 +40,8 @@ export function scoring() {
   arrUser.sort(function (a, b) {
     return a - b;
   });
-  console.log("*************************");
-  console.log(arrUser);
+}
+
+export function getScoring() {
+  return arrUser;
 }

@@ -106,7 +106,6 @@ function flipImage(event) {
     setTimeout(() => {
       checkMatch();
     }, 500);
-    console.log(arrChosen);
   }
 }
 
@@ -114,7 +113,7 @@ function flipImage(event) {
  * this checks for matches images
  * @ Author:
  */
-const idChosen = [];
+export const idChosen = [];
 
 function checkMatch() {
   const images = document.querySelectorAll("img[data-id]");
@@ -171,23 +170,14 @@ function removeImagesClickEvent() {
  */
 export function checkVictory() {
   if (idChosen.length === arrSorted.length) {
-    alert(`Ganó en ${gameTime()} segundos`);
-    /*--------------*/
-    const images = document.querySelectorAll("img[data-id]");
-    images.forEach((element) => {
-      element.remove();
-    });
+    // alert(`Ganó en ${gameTime()} segundos`);
+    // reset ids matched
     idChosen.splice(0, idChosen.length);
+    // calculate time
     setTime(gameTime());
+    //  view scoring
     scoring();
-
-    // setTimeout(() => {
-    //   arrSorted = randomImages(arrImg);
-    //   startGame();
-    // }, 1000);
-    return true;
   }
-  return false;
 }
 
 // test
