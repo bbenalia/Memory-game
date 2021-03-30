@@ -14,19 +14,18 @@
         <section id="left_section"></section>
         <section id="right_section"></section>
     </main>
+
+    <!-- Templates -->
     <template id="registration">
         <div class="container">
             <h1>Choose a user name</h1>
             <label>User Name:</label>
             <input type="text"><br>
-            <input type="submit" value="Start" onclick="swapTemplate('play','left_section')">
+            <input id="btnStart" type="submit" value="Start">
         </div>
     </template>
-    <template id="play">
-        <button onclick="swapTemplate('finish','left_section')">TemplateTest</button>
-    </template>
     <template id="finish">
-        <div>
+        <div class="container">
             <h1>Win/Lose Title</h1>
             <p>Win/Lose Text</p>
             <button onclick="swapTemplate('registration','left_section')">Play Again</button>
@@ -44,7 +43,8 @@
         </div>
     </template>
     <template id="play">
-        <div class="container-grid">
+        <div id="board" class="container-grid">
+            <!-- <div><img src="assets/img/imagen4.jpg" alt=""></div>
             <div><img src="assets/img/imagen4.jpg" alt=""></div>
             <div><img src="assets/img/imagen4.jpg" alt=""></div>
             <div><img src="assets/img/imagen4.jpg" alt=""></div>
@@ -59,30 +59,21 @@
             <div><img src="assets/img/imagen4.jpg" alt=""></div>
             <div><img src="assets/img/imagen4.jpg" alt=""></div>
             <div><img src="assets/img/imagen4.jpg" alt=""></div>
-            <div><img src="assets/img/imagen4.jpg" alt=""></div>
-            <div><img src="assets/img/imagen4.jpg" alt=""></div>
-        </div>
-    </template>
-    <template id="finish">
-        <div class="container">
-            <h1>Win/Lose Title</h1>
-            <p>Win/Lose Text</p>
-            <button>Play Again</button>
+            <div><img src="assets/img/imagen4.jpg" alt=""></div> -->
         </div>
     </template>
 </body>
 
 
+<!-- <script src="./assets/file/templates.js"></script>
 <script>
     swapTemplate('registration', 'left_section');
     swapTemplate('score', 'right_section');
 </script>
-
-<script src="assets/file/templates.js"></script>
-
 <script src="./assets/js/randomImages.js"></script>
+<script src="./assets/js/scoring.js"></script> -->
+<script src="./assets/js/game.js" type="module"></script>
 
-<script src="./assets/js/scoring.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+import { gameStart, setTime, scoring, gameTime } from "./scoring.js";
+
 const arrImg = [
   {
     name: "yellowShell",
@@ -33,6 +35,8 @@ const arrImg = [
   },
 ];
 
+let arrSorted = [];
+
 /*
  * random images in DOM
  * @ Author:
@@ -56,16 +60,16 @@ function randomImages(arrayFrom) {
  * inject cover image in DOM
  * @ Author:
  */
-
-const board = document.getElementById("board");
-let arrSorted = randomImages(arrImg);
 // inject in DOM
-function setUpGame() {
+export function playGame() {
+  arrSorted = randomImages(arrImg);
+  const board = document.getElementById("board");
   arrSorted.forEach((element, i) => {
     const img = document.createElement("img");
+    const div = document.createElement("div");
     // add cover image
     setTimeout(() => {
-      //img.setAttribute("src", "./assets/img/imagen4.jpg");
+      img.setAttribute("src", "./assets/img/imagen4.jpg");
       // add eventListeners
       img.addEventListener("click", flipImage, true);
       // set time count score
@@ -75,7 +79,8 @@ function setUpGame() {
     img.setAttribute("data-id", i);
     img.setAttribute("alt", "mario cover");
     // img.addEventListener("click", flipImage);
-    board.appendChild(img);
+    div.appendChild(img);
+    board.appendChild(div);
   });
 }
 
@@ -164,7 +169,7 @@ function removeImagesClickEvent() {
  * this check for victory
  * @ Author:
  */
-function checkVictory() {
+export function checkVictory() {
   if (idChosen.length === arrSorted.length) {
     alert(`Ganó en ${gameTime()} segundos`);
     /*--------------*/
@@ -174,15 +179,17 @@ function checkVictory() {
     });
     idChosen.splice(0, idChosen.length);
     setTime(gameTime());
-    scoring(objUser);
+    scoring();
 
-    setTimeout(() => {
-      arrSorted = randomImages(arrImg);
-      setUpGame();
-    }, 1000);
+    // setTimeout(() => {
+    //   arrSorted = randomImages(arrImg);
+    //   startGame();
+    // }, 1000);
+    return true;
   }
+  return false;
 }
 
 // test
-arrSorted = randomImages(arrImg);
-setUpGame();
+// arrSorted = randomImages(arrImg);
+// setUpGame();

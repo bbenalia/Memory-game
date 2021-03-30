@@ -1,5 +1,5 @@
 
-function swapTemplate(templateId,parentId){
+export function swapTemplate(templateId,parentId){
     var template = document.getElementById(templateId);
     var parent = document.getElementById(parentId);
 

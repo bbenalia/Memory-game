@@ -1,44 +1,45 @@
-const arrUser = [];
+export const arrUser = [];
 const objUser = {};
+let startDate;
 
 /* Handling Score -------------------*/
-
-function gameStart() {
-    startDate = new Date();
+export function gameStart() {
+  startDate = new Date();
 }
 
-function gameTime() {
-    let time = new Date() - startDate;
-    return time;
+export function gameTime() {
+  let time = new Date() - startDate;
+  return time;
 }
 
 function convertTime(milisec) {
-    let minutes = ~~(milisec / 60000);
-    let seconds = ~~(milisec / 1000) - minutes * 60;
-    return {
-        minutes: minutes,
-        seconds: seconds
-    };
+  let minutes = ~~(milisec / 60000);
+  let seconds = ~~(milisec / 1000) - minutes * 60;
+  return {
+    minutes: minutes,
+    seconds: seconds,
+  };
 }
 
-function setName(name) {
-    objUser.name = name;
+export function setName(name) {
+  objUser.name = name;
 }
 
-function setTime(time) {
-    objUser.time = time;
+export function setTime(time) {
+  objUser.time = time;
 }
 
-function scoring(obj) {
-    //if() -----comprobacion de usuario existente 
-    arrUser.push(obj);
-
-    arrUser.sort(function (a, b) {
-        return a - b
-    });
-    //document.getElementById().innerHTML;;
-
-
-    console.log("*************************");
-    console.log(arrUser);
+// [{name: pepe,
+//  time: 1245
+// },
+// {name: juan,
+//  time: 1252
+// }]
+export function scoring() {
+  arrUser.push(objUser);
+  arrUser.sort(function (a, b) {
+    return a - b;
+  });
+  console.log("*************************");
+  console.log(arrUser);
 }
