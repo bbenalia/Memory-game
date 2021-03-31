@@ -57,7 +57,7 @@ export function playGame() {
     div.appendChild(img);
     board.appendChild(div);
   });
-  manageUserTime("#dataUser", true);
+  manageUserTime("#contentPlay", true);
 }
 
 /*
@@ -146,7 +146,7 @@ function removeImagesClickEvent() {
  */
 export function checkVictory() {
   if (idChosen.length === arrSorted.length) {
-    manageUserTime("#dataUser", false);
+    manageUserTime("#contentPlay", false);
     // alert(`Ganó...`);
     // reset ids matched
     idChosen.splice(0, idChosen.length);
