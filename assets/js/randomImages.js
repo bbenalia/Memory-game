@@ -168,7 +168,6 @@ export function manageUserTime(TagPlace, activate) {
     pTime = d.createElement("p"),
     pName = d.createElement("p");
   let timeInterval = null;
-
   if (activate) {
     timeInterval = setInterval(() => {
       const name = getCurrentPlayer().name;
@@ -176,7 +175,7 @@ export function manageUserTime(TagPlace, activate) {
       pName.innerHTML = `Player: <strong>${name}</strong>`;
       pTime.textContent = `Current time: ${convertTime(currentTime)}`;
     }, 1000);
-    // v.appendChild(pName);
+    v.appendChild(pName);
     v.appendChild(pTime);
   } else {
     clearInterval(timeInterval);
