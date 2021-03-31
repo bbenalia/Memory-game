@@ -114,20 +114,17 @@ body > main {
   justify-content: center;
 }
 #dataUser {
-  /* background-color: aqua;
-  border-radius: 20px;
-  margin: 0% 1%;
-  width: 30%;
-  max-width: 800px;
-  height: 120px;
-  min-width: 200px; */
   background-color: aqua;
   position: absolute;
-  top: -120px;
+  top: -100px;
   left: calc(50% - (200px / 2));
   border-radius: 20px;
-  height: 100px;
+  height: 80px;
   min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #left_section {
   position: relative;

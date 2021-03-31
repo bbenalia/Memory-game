@@ -1,11 +1,6 @@
 import { swapTemplate } from "./templates.js";
-import { playGame, checkVictory } from "./randomImages.js";
-import {
-  getScoring,
-  setName,
-  setScoreRanking,
-  getCurrentPlayer,
-} from "./scoring.js";
+import { playGame, checkVictory, manageUserTime } from "./randomImages.js";
+import { getScoring, setName, setScoreRanking } from "./scoring.js";
 
 // initial template
 swapTemplate("registration", "left_section");
@@ -15,12 +10,17 @@ swapTemplate("score", "right_section");
 // listener to start game boton
 document.getElementById("btnStart").addEventListener("click", startGame);
 
+/*
+ * This starts the game and
+ * changes to game template
+ * @ Author:
+ */
 function startGame() {
   const namePlayer = document.getElementById("namePlayer");
-
   if (namePlayer.value.trim() != "") {
     setName(namePlayer.value);
     swapTemplate("play", "left_section");
+    
     playGame();
     // listener
     document.getElementById("board").addEventListener("click", goToPageFinish);
@@ -29,11 +29,11 @@ function startGame() {
   } else {
     alert("Name required!");
   }
-  console.log(getCurrentPlayer());
 }
 
 /*
- * this check delays the
+ * this check victory and
+ * delays the finish template
  * @ Author:
  */
 let arrUserLength = getScoring().length;
@@ -68,11 +68,16 @@ function handleStartAgain() {
   }, 1000);
 }
 
-document.getElementById("close").addEventListener("click",function(){
+/*
+ * This displays the score icon in
+ * mobile version
+ * @ Author:
+ */
+document.getElementById("close").addEventListener("click", function () {
   var closed = document.getElementById("close");
   closed.style.display = "none";
 });
-document.getElementById("open").addEventListener("click",function(){
+document.getElementById("open").addEventListener("click", function () {
   var closed = document.getElementById("close");
   closed.style.display = "block";
 });
