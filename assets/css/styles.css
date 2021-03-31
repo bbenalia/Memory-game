@@ -161,10 +161,10 @@ body > main {
   position: fixed;
   top: 0;
   right: 0;
-  background-color: tomato;
+  margin: 1%;
   width: 60px;
   height: 60px;
-  padding: 1%;
+  padding: 0;
 }
 #nav {
   display: none;
@@ -174,7 +174,7 @@ body > main {
   position: fixed;
   top: 0;
   right: 0;
-  background-color: tomato;
+  background-color: #fdb500;
   width: 90%;
   height: 70%;
   padding: 1%;
