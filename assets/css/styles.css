@@ -6,44 +6,52 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "Montserrat";
   overflow-x: hidden;
 }
-
+.tittle{
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3em;
+  padding: 2%;
+  border: 6px double rgb(226, 155, 2);
+  color: rgb(226, 155, 2);
+}
+.tittle3{
+  font-family: 'Squada One', cursive;
+  font-size: 50px;
+  color: rgb(226, 155, 2);
+}
 h1 {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Squada One', cursive;
   font-size: 1.5em;
-  font-weight: 500;
+  font-weight: 200;
   color: #242424;
 }
 
 h2 {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Squada One', cursive;
   font-size: 25px;
-  font-weight: 700;
+  font-weight: 200;
   color: #242424;
 }
 
 p {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Squada One', cursive;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 200;
   color: #242424;
   line-height: 1.4;
 }
 
 ul.list {
-  font-family: "Ubuntu", sans-serif;
-  font-size: 16px;
-  font-weight: 580;
-  color: white;
+  
+  font-size: 20px;
+  color: white
   width: 80%;
 }
 
 ul.list > li {
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 300;
-  font-size: 13px;
+  font-family: 'Squada One', cursive;
+  font-size: 20px;
   color: white;
   background-color: black;
   opacity: 0.7;
@@ -53,17 +61,14 @@ ul.list > li {
 }
 
 ul.listNav {
-  font-family: "Ubuntu", sans-serif;
-  font-size: 16px;
-  font-weight: 580;
+  font-size: 20px;
   color: white;
   width: 80%;
 }
 
 ul.listNav > li {
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 300;
-  font-size: 13px;
+  font-family: 'Squada One', cursive;
+  font-size: 20px;
   color: white;
   background-color: black;
   opacity: 0.7;
@@ -73,17 +78,21 @@ ul.listNav > li {
 }
 
 label {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Squada One', cursive;
   color: #242424;
-  font-size: 13px;
-  font-weight: 300;
+  font-size: 24px;
+
 }
 
-input {
-  font-family: "Ubuntu", sans-serif;
-  color: #242424;
-  font-size: 16px;
-  font-weight: 300;
+input.name {
+  font-family: 'Squada One', cursive;
+  color: rgb(41, 40, 40);
+  font-size: 24px;
+
+  padding: 1%;
+  background-color: #fdb500;
+  border-radius: 5px;
+  border: 6px double #664901;
 }
 
 /* ----------------------- */
@@ -91,10 +100,9 @@ input {
 body {
   margin: 0 auto;
   width: 100vw;
-  height: 100vh;
-  font-weight: normal;
-
+  height: 100vh;  
   background-image: url("../img/fondo2.png");
+  backdrop-filter: blur(1.5px);
   background-image: no-repeat;
   background-image: fixed;
   background-image: center;
@@ -119,6 +127,7 @@ body > main {
   top: -100px;
   left: calc(50% - (200px / 2));
   border-radius: 2px;
+  border: 2px outset #de5918;
   height: 80px;
   min-width: 200px;
   display: flex;
@@ -161,7 +170,7 @@ body > main {
 }
 .back {
   background-color: white;
-  opacity: 0.7;
+  opacity: 1;
 }
 .container-grid {
   display: flex;
@@ -172,8 +181,6 @@ body > main {
 }
 .container-grid > div {
   width: 22%;
-  /* max-width: 100px;
-  max-height: 100px; */
   flex: none;
   margin-bottom: 1%;
   display: flex;
@@ -227,8 +234,9 @@ body > main {
 .circle >div{
   border-radius: 50%;
   background-color: rgb(255, 174, 0);
-  width: 10px;
-  height: 10px;
+  border: 2px outset rgb(255, 174, 0);
+  width: 12px;
+  height: 12px;
 }
 .circle2 {
   display: flex;
@@ -237,8 +245,9 @@ body > main {
 .circle2 >div{
   border-radius: 50%;
   background-color: rgb(255, 174, 0);
-  width: 10px;
-  height: 10px;
+  border: 2px outset rgb(255, 174, 0);
+  width: 12px;
+  height: 12px;
 }
 #contentPlay{
   display: flex;
@@ -285,6 +294,13 @@ Media queries
   .navBar {
     width: 70%;
   }
+  .tittle{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.4em;
+    padding: 2%;
+    border: 6px double rgb(226, 155, 2);
+    color: rgb(226, 155, 2);
+  }
 }
 
 /* Tablet */
@@ -297,6 +313,13 @@ Media queries
   }
   .navBar {
     width: 55%;
+  }
+  .tittle{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.6em;
+    padding: 2%;
+    border: 6px double rgb(226, 155, 2);
+    color: rgb(226, 155, 2);
   }
 }
 

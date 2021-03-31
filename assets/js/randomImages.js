@@ -172,7 +172,7 @@ export function manageUserTime(TagPlace, activate) {
     timeInterval = setInterval(() => {
       const name = getCurrentPlayer().name;
       const currentTime = gameTime();
-      pName.innerHTML = `Player: <strong>${name}</strong>`;
+      pName.innerHTML = `Player: ${name}`;
       pTime.textContent = `Current time: ${convertTime(currentTime)}`;
     }, 1000);
     v.appendChild(pName);
