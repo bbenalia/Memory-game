@@ -97,18 +97,13 @@ document.getElementById("open").addEventListener("click", function () {
   closed.classList.add("nav-animation");
 });
 
-
-
 /*
  * this function clean the wrong animation
  * game
  * @ Author:
  */
-
-
 document.addEventListener("animationend", pruebasP);
 function pruebasP() {
-  console.log("Funcionaaaa");
   const allImages = document.querySelectorAll("img[data-id]");
 
   allImages.forEach(element => {

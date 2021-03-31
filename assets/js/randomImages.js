@@ -103,7 +103,7 @@ function checkMatch() {
     arrChosen[0].name === arrChosen[1].name &&
     arrChosen[0].id !== arrChosen[1].id
   ) {
-    console.log("Match", idChosen);
+    // console.log("Match", idChosen);
     images[arrChosen[0].id].classList.add("matched");
     images[arrChosen[1].id].classList.add("matched");
     images[arrChosen[0].id].removeEventListener("click", flipImage, true);
