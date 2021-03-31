@@ -13,18 +13,14 @@
     <main>
         <section id="nav">
             <div id="open" class="nav">
-                <img src="assets/img/menu2.svg" alt="">
+                <img src="assets/img/menu.png" alt="">
             </div>
             <div id="close" class="navBar">
+                <img src="assets/img/close.svg" alt="">
                 <div class="containers">
-                    <img src="assets/img/close.svg" alt="">
                     <h2>User Scores</h2>
-                    <dl>
-                        <dt>User1</dt>
-                        <dd>X seconds</dd>
-                        <dt>User2</dt>
-                        <dd>Y seconds</dd>
-                    </dl>
+                    <ul class="listNav">
+                    </ul>
                 </div>
             </div>
         </section>
@@ -32,27 +28,23 @@
         <section id="right_section"></section>
     </main>
 
-    <!-- Templates -->
-    <template id="nav">
-        
-    </template>
     <template id="registration">
-        <div class="container">
+        <div class="container back">
             <h1>Choose a user name</h1>
             <label>User Name:</label>
             <input id="namePlayer" type="text"><br>
-            <input id="btnStart" type="submit" value="Start">
+            <input id="btnStart"  >
         </div>
     </template>
     <template id="finish">
-        <div class="container">
+        <div class="container back">
             <h1>Win/Lose Title</h1>
             <p>Win/Lose Text</p>
             <button id="play-again">Play Again</button>
         </div>
     </template>
     <template id="score">
-        <div class="container">
+        <div class="container back">
             <h2>User Scores</h2>
             <ul class="list">
                 <!-- <li>Name: <strong>Time</strong></li> -->
@@ -60,6 +52,20 @@
         </div>
     </template>
     <template id="play">
+        <div id="dataUser">
+            <div class="circle"> 
+                <div></div>
+                <div></div>
+            </div>
+            <div id="contentPlay">
+                <!-- <p>Name: Juan</p>
+                <p>Time: 15s</p> -->
+            </div>
+            <div class="circle2"> 
+                <div></div>
+                <div></div>
+            </div>
+        </div>
         <div id="board" class="container-grid">
         </div>
     </template>

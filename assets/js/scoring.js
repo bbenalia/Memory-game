@@ -1,3 +1,5 @@
+import { settings } from "./data.js";
+
 const arrUser = [];
 const objUser = {};
 let startDate;
@@ -5,7 +7,7 @@ let startDate;
 /*
  * This function handles user time
  */
-export function gameStart() {
+export function timeStart() {
   startDate = new Date();
 }
 
@@ -14,6 +16,9 @@ export function gameTime() {
   return time;
 }
 
+/*
+ * This formats string time
+ */
 export function convertTime(milisec) {
   let timeFormat = "";
   let minutes = ~~(milisec / 60000);
@@ -22,7 +27,7 @@ export function convertTime(milisec) {
   if (minutes === 0) {
     timeFormat = seconds + "s";
   } else {
-    timeFormat = minutes + "min" + seconds + "s";
+    timeFormat = minutes + "min " + seconds + "s";
   }
   return timeFormat;
 }
@@ -40,7 +45,7 @@ export function setTime(time) {
  * in an array
  */
 export function scoring() {
-  // clone main object 
+  // clone main object
   const cloneObj = { ...objUser };
   arrUser.push(cloneObj);
   // reset main object
@@ -65,12 +70,10 @@ export function setScoreRanking(ulSelector) {
   // get the ul element from DOM
   const ulList = document.querySelector(ulSelector);
   const lis = document.querySelectorAll(`${ulSelector} li`);
-
   // reset ul
   lis.forEach((element) => {
     element.remove();
   });
-
   // current player
   if (objUser.name.trim() !== "") {
     const liScore = d.createElement("li");
@@ -82,7 +85,6 @@ export function setScoreRanking(ulSelector) {
     // inject in DOM
     ulList.appendChild(liScore);
   }
-
   // loop for print elements in ul
   arrUser.forEach((element) => {
     const liScore = d.createElement("li");
@@ -93,4 +95,5 @@ export function setScoreRanking(ulSelector) {
     // inject in DOM
     ulList.appendChild(liScore);
   });
+
 }

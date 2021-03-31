@@ -1,42 +1,14 @@
-import { gameStart, setTime, scoring, gameTime } from "./scoring.js";
-
-const arrImg = [
-  {
-    name: "yellowShell",
-    img: "./assets/img/imagen1.jpg",
-  },
-  {
-    name: "greenShell",
-    img: "./assets/img/imagen2.jpg",
-  },
-  {
-    name: "blueFlower",
-    img: "./assets/img/imagen3.jpg",
-  },
-  {
-    name: "redFlower",
-    img: "./assets/img/imagen5.jpg",
-  },
-  {
-    name: "coin",
-    img: "./assets/img/imagen6.jpg",
-  },
-  {
-    name: "Luigi",
-    img: "./assets/img/imagen7.jpg",
-  },
-  {
-    name: "egg",
-    img: "./assets/img/imagen8.jpg",
-  },
-  {
-    name: "blueShell",
-    img: "./assets/img/imagen9.jpg",
-  },
-];
+import {
+  timeStart,
+  setTime,
+  scoring,
+  gameTime,
+  convertTime,
+  getCurrentPlayer,
+} from "./scoring.js";
+import { arrImg, settings } from "./data.js";
 
 let arrSorted = [];
-
 /*
  * random images in DOM
  * @ Author:
@@ -64,17 +36,24 @@ function randomImages(arrayFrom) {
 export function playGame() {
   arrSorted = randomImages(arrImg);
   const board = document.getElementById("board");
+
+  // Loop all images
   arrSorted.forEach((element, i) => {
     const img = document.createElement("img");
     const div = document.createElement("div");
-    // add cover image
     setTimeout(() => {
+<<<<<<< HEAD
       img.setAttribute("src", "./assets/img/imagen4.jpg");
+=======
+      // add cover image
+      img.setAttribute("src", "./assets/img/imagen4.png");
+>>>>>>> D05
       // add eventListeners
       img.addEventListener("click", flipImage, true);
       // set time count score
-      gameStart();
-    }, 3000);
+      timeStart();
+    }, settings.timePrePlay);
+    // other atributtes
     img.setAttribute("src", element.img);
     img.setAttribute("data-id", i);
     img.setAttribute("alt", "mario cover");
@@ -82,6 +61,7 @@ export function playGame() {
     div.appendChild(img);
     board.appendChild(div);
   });
+  manageUserTime("#contentPlay", true);
 }
 
 /*
@@ -105,7 +85,7 @@ function flipImage(event) {
     removeImagesClickEvent();
     setTimeout(() => {
       checkMatch();
-    }, 500);
+    }, settings.timeFlipImage);
   }
 }
 
@@ -129,8 +109,8 @@ function checkMatch() {
     idChosen.push(arrChosen[0].id);
     idChosen.push(arrChosen[1].id);
   } else {
-    images[arrChosen[0].id].src = "./assets/img/imagen4.jpg";
-    images[arrChosen[1].id].src = "./assets/img/imagen4.jpg";
+    images[arrChosen[0].id].src = "./assets/img/imagen4.png";
+    images[arrChosen[1].id].src = "./assets/img/imagen4.png";
   }
   // win
   checkVictory();
@@ -170,7 +150,8 @@ function removeImagesClickEvent() {
  */
 export function checkVictory() {
   if (idChosen.length === arrSorted.length) {
-    alert(`Ganó...`);
+    manageUserTime("#contentPlay", false);
+    // alert(`Ganó...`);
     // reset ids matched
     idChosen.splice(0, idChosen.length);
     // calculate time
@@ -180,6 +161,27 @@ export function checkVictory() {
   }
 }
 
-// test
-// arrSorted = randomImages(arrImg);
-// setUpGame();
+/*
+ * This shows the current time
+ * in play screen
+ * @ Author:
+ */
+export function manageUserTime(TagPlace, activate) {
+  const d = document,
+    v = d.querySelector(TagPlace),
+    pTime = d.createElement("p"),
+    pName = d.createElement("p");
+  let timeInterval = null;
+  if (activate) {
+    timeInterval = setInterval(() => {
+      const name = getCurrentPlayer().name;
+      const currentTime = gameTime();
+      pName.innerHTML = `Player: <strong>${name}</strong>`;
+      pTime.textContent = `Current time: ${convertTime(currentTime)}`;
+    }, 1000);
+    v.appendChild(pName);
+    v.appendChild(pTime);
+  } else {
+    clearInterval(timeInterval);
+  }
+}
