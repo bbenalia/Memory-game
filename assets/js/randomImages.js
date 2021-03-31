@@ -43,7 +43,7 @@ export function playGame() {
     const div = document.createElement("div");
     setTimeout(() => {
       // add cover image
-      img.setAttribute("src", "./assets/img/imagen4.jpg");
+      img.setAttribute("src", "./assets/img/imagen4.png");
       // add eventListeners
       img.addEventListener("click", flipImage, true);
       // set time count score
@@ -105,8 +105,8 @@ function checkMatch() {
     idChosen.push(arrChosen[0].id);
     idChosen.push(arrChosen[1].id);
   } else {
-    images[arrChosen[0].id].src = "./assets/img/imagen4.jpg";
-    images[arrChosen[1].id].src = "./assets/img/imagen4.jpg";
+    images[arrChosen[0].id].src = "./assets/img/imagen4.png";
+    images[arrChosen[1].id].src = "./assets/img/imagen4.png";
   }
   // win
   checkVictory();
