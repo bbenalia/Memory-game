@@ -77,21 +77,21 @@ export function setScoreRanking(ulSelector) {
   // current player
   if (objUser.name.trim() !== "") {
     const liScore = d.createElement("li");
-    const strong = d.createElement("strong");
+    const p = d.createElement("p");
     //  create li element
     liScore.textContent = objUser.name;
-    strong.textContent = " Currently playing...";
-    liScore.appendChild(strong);
+    p.textContent = " currently playing";
+    liScore.appendChild(p);
     // inject in DOM
     ulList.appendChild(liScore);
   }
   // loop for print elements in ul
   arrUser.forEach((element) => {
     const liScore = d.createElement("li");
-    const strong = d.createElement("strong");
+    const p = d.createElement("p");
     liScore.textContent = element.name;
-    strong.textContent = convertTime(element.time);
-    liScore.appendChild(strong);
+    p.textContent = convertTime(element.time);
+    liScore.appendChild(p);
     // inject in DOM
     ulList.appendChild(liScore);
   });

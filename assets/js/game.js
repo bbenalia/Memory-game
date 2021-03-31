@@ -20,13 +20,13 @@ function startGame() {
   if (namePlayer.value.trim() != "") {
     setName(namePlayer.value);
     swapTemplate("play", "left_section");
-    
+
     playGame();
     // listener
     document.getElementById("board").addEventListener("click", goToPageFinish);
     // score list
-    setScoreRanking("ul.list");
-    setScoreRanking("ul.listNav");
+    setScoreRanking("ol.list");
+    setScoreRanking("ol.listNav");
   } else {
     alert("Name required!");
   }
@@ -48,8 +48,8 @@ function goToPageFinish() {
       swapTemplate("finish", "left_section");
       arrUserLength = arrayUsers.length;
       // score list
-      setScoreRanking("ul.list");
-      setScoreRanking("ul.listNav");
+      setScoreRanking("ol.list");
+      setScoreRanking("ol.listNav");
       // Listener
       document
         .getElementById("play-again")
@@ -77,9 +77,11 @@ function handleStartAgain() {
  */
 document.getElementById("close").addEventListener("click", function () {
   var closed = document.getElementById("close");
-  closed.style.display = "none";
+  if (closed.classList.contains("nav-animation")) {
+    closed.classList.remove("nav-animation");
+  }
 });
 document.getElementById("open").addEventListener("click", function () {
   var closed = document.getElementById("close");
-  closed.style.display = "block";
+  closed.classList.add("nav-animation");
 });

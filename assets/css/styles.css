@@ -1,5 +1,19 @@
-/* GENERAL STYLES ------------- */
-
+/* 
+=======================================
+ ! Custom properties
+=======================================
+ */
+:root {
+  --main-color: rgb(226, 155, 2);
+  --text-color: #242424;
+  --nav-color: #fdb500;
+  --data-color: #de5918;
+}
+/* 
+=======================================
+ ! General styles
+=======================================
+ */
 * {
   margin: 0;
   padding: 0;
@@ -8,99 +22,9 @@
   box-sizing: border-box;
   overflow-x: hidden;
 }
-.tittle{
-  font-family: 'Press Start 2P', cursive;
-  font-size: 3em;
-  padding: 2%;
-  border: 6px double rgb(226, 155, 2);
-  color: rgb(226, 155, 2);
-}
-.tittle3{
-  font-family: 'Squada One', cursive;
-  font-size: 50px;
-  color: rgb(226, 155, 2);
-}
-h1 {
-  font-family: 'Squada One', cursive;
-  font-size: 1.5em;
-  font-weight: 200;
-  color: #242424;
-}
-
-h2 {
-  font-family: 'Squada One', cursive;
-  font-size: 25px;
-  font-weight: 200;
-  color: #242424;
-}
-
-p {
-  font-family: 'Squada One', cursive;
-  font-size: 16px;
-  font-weight: 200;
-  color: #242424;
-  line-height: 1.4;
-}
-
-ul.list {
-  
-  font-size: 20px;
-  color: white
-  width: 80%;
-}
-
-ul.list > li {
-  font-family: 'Squada One', cursive;
-  font-size: 20px;
-  color: white;
-  background-color: black;
-  opacity: 0.7;
-  padding: 10px 0px;
-  text-align: center;
-  margin: 10px 0px;
-}
-
-ul.listNav {
-  font-size: 20px;
-  color: white;
-  width: 80%;
-}
-
-ul.listNav > li {
-  font-family: 'Squada One', cursive;
-  font-size: 20px;
-  color: white;
-  background-color: black;
-  opacity: 0.7;
-  padding: 10px 0px;
-  text-align: center;
-  margin: 10px 0px;
-}
-
-label {
-  font-family: 'Squada One', cursive;
-  color: #242424;
-  font-size: 24px;
-
-}
-
-input.name {
-  font-family: 'Squada One', cursive;
-  color: rgb(41, 40, 40);
-  font-size: 24px;
-
-  padding: 1%;
-  background-color: #fdb500;
-  border-radius: 5px;
-  border: 6px double #664901;
-}
-
-/* ----------------------- */
-
 body {
-  margin: 0 auto;
   width: 100vw;
-  height: 100vh;  
+  height: 100vh;
   background-image: url("../img/fondo2.png");
   backdrop-filter: blur(1.5px);
   background-image: no-repeat;
@@ -110,6 +34,8 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  font-family: "Squada One", cursive;
+  font-size: 16px;
 }
 body > main {
   display: flex;
@@ -121,43 +47,29 @@ body > main {
   align-items: center;
   justify-content: center;
 }
-#dataUser {
-  background-color: #de5918;
-  position: absolute;
-  top: -100px;
-  left: calc(50% - (200px / 2));
-  border-radius: 2px;
-  border: 2px outset #de5918;
-  height: 80px;
-  min-width: 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-#dataUser > p {
-  color: white;
-  font-size: 18px;
-}
+/* 
+=======================================
+ ! main design styles
+=======================================
+ */
 #left_section {
   position: relative;
-  padding: 0%;
   margin: 0% 1%;
-  width: 73%;
-  max-width: 800px;
+  width: 100%;
   height: 70%;
+  max-width: 800px;
   min-width: 200px;
   overflow-x: visible;
   z-index: 1;
 }
 #right_section {
-  /*background-color: white;*/
   border-radius: 20px;
-  padding: 0%;
   margin: 0% 1%;
-  width: 23%;
-  max-width: 300px;
+  width: 30%;
   height: 70%;
-  min-width: 200px;
+  max-width: 300px;
+  min-width: 250px;
+  display: none;
 }
 .container {
   display: flex;
@@ -166,6 +78,16 @@ body > main {
   justify-content: center;
   height: 100%;
   width: 100%;
+  border-radius: 20px;
+}
+.score-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* justify-content: center; */
+  height: 100%;
+  width: 100%;
+  padding-top: 20px;
   border-radius: 20px;
 }
 .back {
@@ -187,148 +109,213 @@ body > main {
   justify-content: center;
   align-items: center;
 }
-.nav {
+/* 
+=======================================
+ ! Registration page
+=======================================
+ */
+.title {
+  padding: 15px;
+  width: 90%;
+  max-width: 450px;
+  border: 6px double var(--main-color);
+  color: var(--main-color);
+}
+.title p {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1em;
+  color: var(--main-color);
+  text-align: center;
+}
+.user-name {
+  padding: 15px 0px;
+  width: 90%;
+  max-width: 450px;
+  font-size: 1.2rem;
+}
+.user-name input {
+  width: 100%;
+}
+#btnStart {
+  background-image: url("../img/start.png");
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background-color: none;
+  outline: none;
+  cursor: pointer;
+}
+/* 
+=======================================
+ ! Scoring styles
+=======================================
+ */
+ol.list-styles {
+  font-size: 1.2rem;
+  color: white;
+  width: 80%;
+  counter-reset: counterName;
+}
+ol.list-styles > li {
+  color: white;
+  background-color: black;
+  opacity: 0.7;
+  padding: 10px 0;
+  margin: 10px 0;
+  display: flex;
+  position: relative;
+  counter-increment: counterName;
+}
+ol.list-styles > li p {
+  position: absolute;
+  right: 1rem;
+}
+ol.list-styles > li:before {
+  content: counter(counterName);
+  padding: 0 1rem;
+}
+input.name {
+  color: rgb(41, 40, 40);
+  font-size: 24px;
+  padding: 1%;
+  background-color: var(--nav-color);
+  border-radius: 5px;
+  border: 6px double #664901;
+}
+
+/* 
+=======================================
+ ! user data play page
+=======================================
+ */
+#dataUser {
+  background-color: var(--data-color);
+  position: absolute;
+  top: -100px;
+  left: calc(50% - (200px / 2));
+  border-radius: 2px;
+  border: 2px outset var(--data-color);
+  height: 80px;
+  min-width: 200px;
+  gap: 8px;
+}
+div#contentPlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+div#contentPlay p {
+  color: white;
+  opacity: 0.8;
+  line-height: 1.6rem;
+  letter-spacing: 0.1rem;
+}
+.circle > div.screw {
+  border-radius: 50%;
+  background-color: rgb(255, 174, 0);
+  border: 2px outset rgb(255, 174, 0);
+  width: 12px;
+  height: 12px;
+}
+.circle :nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.circle :nth-child(2) {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.circle :nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.circle :nth-child(4) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* 
+=======================================
+ ! nav bar styles
+=======================================
+ */
+#nav {
+  z-index: 20;
+}
+.navOpen {
   position: fixed;
   top: 0;
   right: 0;
   margin: 1%;
   width: 60px;
   height: 60px;
-  padding: 0;
 }
-#nav {
+.navClose {
   display: none;
-  z-index: 20;
-}
-.navBar {
   position: fixed;
   top: 0;
   right: 0;
-  background-color: #fdb500;
-  width: 90%;
+  background-color: var(--nav-color);
+  width: 100%;
   max-width: 280px;
   height: 70%;
-  padding: 1%;
-  /* opacity: 0.7; */
 }
-.navBar div {
-  background-color: #fdb500;
-  padding-top: 80px;
+.nav-animation {
+  display: block;
+  transform: translateX(0vw);
+  transform-origin: (0, 100);
+  transition: transform 2s ease-in-out;
+}
+.navClose div {
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.navBar > img {
+.navClose > img {
   position: fixed;
   right: 15px;
   top: 15px;
   width: 30px;
+  /* visibility: hidden; */
 }
-#close {
-  display: none;
-}
-.circle {
-  display: flex;
-  justify-content: space-between;
-}
-.circle >div{
-  border-radius: 50%;
-  background-color: rgb(255, 174, 0);
-  border: 2px outset rgb(255, 174, 0);
-  width: 12px;
-  height: 12px;
-}
-.circle2 {
-  display: flex;
-  justify-content: space-between;
-}
-.circle2 >div{
-  border-radius: 50%;
-  background-color: rgb(255, 174, 0);
-  border: 2px outset rgb(255, 174, 0);
-  width: 12px;
-  height: 12px;
-}
-#contentPlay{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#btnStart{
-  background-image: url("../img/start.png");
-  opacity: 1;
-  background-size: cover;
-  width: 80px;
-  height: 80px;
-  border:0;
-  background-color:none;
-}
-/*  
-=============================
-Media queries
-=============================
-*/
-/* Mobile */
-@media only screen and (max-width: 468px) {
-  #right_section {
-    display: none;
-  }
-  #nav {
-    display: block;
-  }
-  .container-grid {
-    /* align-items: center; */
-    height: 100%;
-    max-height: 500px;
-  }
-  #left_section {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 800px;
-    height: 70%;
-    min-width: 200px;
-  }
-  .navBar {
-    width: 70%;
-  }
-  .tittle{
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1.4em;
-    padding: 2%;
-    border: 6px double rgb(226, 155, 2);
-    color: rgb(226, 155, 2);
-  }
-}
+/* 
+=======================================
+ ! Media queries
+=======================================
+ */
 
 /* Tablet */
-@media only screen and (min-width: 469px) {
-  #right_section {
-    display: none;
-  }
-  #nav {
-    display: block;
-  }
-  .navBar {
-    width: 55%;
-  }
-  .tittle{
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1.6em;
-    padding: 2%;
-    border: 6px double rgb(226, 155, 2);
-    color: rgb(226, 155, 2);
+@media only screen and (min-width: 500px) {
+  .title {
+    font-size: 1.3em;
   }
 }
 
-/* PC */
+/* Desktop */
 @media only screen and (min-width: 946px) {
-  #right_section {
-    display: block;
+  .title {
+    padding: 20px;
+    font-size: 1.5rem;
   }
   #nav {
     display: none;
+  }
+  #left_section {
+    width: 60%;
+  }
+  #right_section {
+    display: block;
   }
 }

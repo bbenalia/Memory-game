@@ -43,7 +43,7 @@ export function playGame() {
     const div = document.createElement("div");
     setTimeout(() => {
       // add cover image
-      img.setAttribute("src", "./assets/img/imagen4.png");
+      // img.setAttribute("src", "./assets/img/imagen4.png");
       // add eventListeners
       img.addEventListener("click", flipImage, true);
       // set time count score

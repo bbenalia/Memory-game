@@ -7,37 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Memory Game</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Press+Start+2P&family=Squada+One&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Press+Start+2P&family=Squada+One&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <main>
         <section id="nav">
-            <div id="open" class="nav">
+            <div id="open" class="navOpen">
                 <img src="assets/img/menu.png" alt="">
             </div>
-            <div id="close" class="navBar">
+            <div id="close" class="navClose">
                 <img src="assets/img/close.svg" alt="">
                 <div class="containers">
                     <h2>User Scores</h2>
-                    <ul class="listNav">
-                    </ul>
+                    <ol class="listNav list-styles">
+                    </ol>
                 </div>
             </div>
         </section>
         <section id="left_section"></section>
         <section id="right_section"></section>
     </main>
-
+    <!-- page registration template -->
     <template id="registration">
         <div class="container back">
-            <p class="tittle">Mario Bros 3 </p>
-            <h2>Choose a user name</h2>
-            <label>User Name:</label>
-            <input id="namePlayer" type="text" class="name"><br>
-            <input id="btnStart"  >
+            <div class="title">
+                <p>Mario Bros 3 </p>
+            </div>
+            <!-- <h2>Choose a user name</h2> -->
+            <div class="user-name">
+                <label>User Name:</label>
+                <input id="namePlayer" type="text" class="name">
+            </div>
+            <input id="btnStart">
         </div>
     </template>
+    <!-- Page finish template -->
     <template id="finish">
         <div class="container back">
             <h1>Win/Lose Title</h1>
@@ -45,28 +52,29 @@
             <button id="play-again">Play Again</button>
         </div>
     </template>
+    <!-- score container template -->
     <template id="score">
-        <div class="container back">
+        <div class="score-container back">
             <h2>User Scores</h2>
-            <ul class="list">
-                <!-- <li>Name: <strong>Time</strong></li> -->
-            </ul>
+            <ol class="list list-styles">
+            </ol>
         </div>
     </template>
+    <!-- play page template -->
     <template id="play">
         <div id="dataUser">
-            <div class="circle"> 
-                <div></div>
-                <div></div>
+            <div class="circle">
+                <div class="screw"></div>
+                <div class="screw"></div>
+                <div class="screw"></div>
+                <div class="screw"></div>
             </div>
             <div id="contentPlay">
-                <!-- <p>Name: Juan</p>
-                <p>Time: 15s</p> -->
             </div>
-            <div class="circle2"> 
+            <!-- <div class="circle2">
                 <div></div>
                 <div></div>
-            </div>
+            </div> -->
         </div>
         <div id="board" class="container-grid">
         </div>
