@@ -26,6 +26,7 @@ function startGame() {
     document.getElementById("board").addEventListener("click", goToPageFinish);
     // score list
     setScoreRanking("ul.list");
+    setScoreRanking("ul.listNav");
   } else {
     alert("Name required!");
   }
@@ -48,6 +49,7 @@ function goToPageFinish() {
       arrUserLength = arrayUsers.length;
       // score list
       setScoreRanking("ul.list");
+      setScoreRanking("ul.listNav");
       // Listener
       document
         .getElementById("play-again")

@@ -4,6 +4,7 @@ import {
   scoring,
   gameTime,
   convertTime,
+  getCurrentPlayer
 } from "./scoring.js";
 import { arrImg, settings } from "./data.js";
 
@@ -164,14 +165,18 @@ export function checkVictory() {
 export function manageUserTime(TagPlace, activate) {
   const d = document,
     v = d.querySelector(TagPlace),
-    pTime = d.createElement("p");
+    pTime = d.createElement("p"),
+    pName = d.createElement("p");
   let timeInterval = null;
 
   if (activate) {
     timeInterval = setInterval(() => {
+      const name = getCurrentPlayer().name;
       const currentTime = gameTime();
+      pName.innerHTML = `Player: <strong>${name}</strong>`;
       pTime.textContent = `Current time: ${convertTime(currentTime)}`;
     }, 1000);
+    v.appendChild(pName);
     v.appendChild(pTime);
   } else {
     clearInterval(timeInterval);

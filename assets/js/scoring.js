@@ -95,5 +95,5 @@ export function setScoreRanking(ulSelector) {
     // inject in DOM
     ulList.appendChild(liScore);
   });
-  console.log("USER SCORE FINISHED!!");
+
 }
