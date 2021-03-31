@@ -1,6 +1,16 @@
-import { swapTemplate } from "./templates.js";
-import { playGame, checkVictory, manageUserTime } from "./randomImages.js";
-import { getScoring, setName, setScoreRanking } from "./scoring.js";
+import {
+  swapTemplate
+} from "./templates.js";
+import {
+  playGame,
+  checkVictory,
+  manageUserTime
+} from "./randomImages.js";
+import {
+  getScoring,
+  setName,
+  setScoreRanking
+} from "./scoring.js";
 
 // initial template
 swapTemplate("registration", "left_section");
@@ -38,6 +48,7 @@ function startGame() {
  * @ Author:
  */
 let arrUserLength = getScoring().length;
+
 function goToPageFinish() {
   const arrayUsers = getScoring();
   // delay event after checkvictory.
@@ -85,3 +96,25 @@ document.getElementById("open").addEventListener("click", function () {
   var closed = document.getElementById("close");
   closed.classList.add("nav-animation");
 });
+
+
+
+/*
+ * this function clean the wrong animation
+ * game
+ * @ Author:
+ */
+
+
+document.addEventListener("animationend", pruebasP);
+function pruebasP() {
+  console.log("Funcionaaaa");
+  const allImages = document.querySelectorAll("img[data-id]");
+
+  allImages.forEach(element => {
+    if (element.classList.contains("wrong")) {
+      element.classList.remove("wrong");
+    }
+  });
+
+}
