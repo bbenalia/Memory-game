@@ -247,6 +247,16 @@ div#contentPlay p {
 
 /* 
 =======================================
+ ! finish page
+=======================================
+ */
+ img.win-mario{
+   /* width: 100%; */
+   height: 70%;
+ }
+
+/* 
+=======================================
  ! nav bar styles
 =======================================
  */
@@ -289,35 +299,6 @@ div#contentPlay p {
   top: 15px;
   width: 30px;
   /* visibility: hidden; */
-}
-/* 
-=======================================
- ! Media queries
-=======================================
- */
-
-/* Tablet */
-@media only screen and (min-width: 500px) {
-  .title {
-    font-size: 1.3em;
-  }
-}
-
-/* Desktop */
-@media only screen and (min-width: 946px) {
-  .title {
-    padding: 20px;
-    font-size: 1.5rem;
-  }
-  #nav {
-    display: none;
-  }
-  #left_section {
-    width: 60%;
-  }
-  #right_section {
-    display: block;
-  }
 }
 
 /* 
@@ -418,5 +399,35 @@ div#contentPlay p {
       translateX(1000px);
     transform: translateZ(-1100px) translateY(-1000px) translateX(1000px);
     opacity: 0;
+  }
+}
+
+/* 
+=======================================
+ ! Media queries
+=======================================
+ */
+
+/* Tablet */
+@media only screen and (min-width: 500px) {
+  .title {
+    font-size: 1.3em;
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 946px) {
+  .title {
+    padding: 20px;
+    font-size: 1.5rem;
+  }
+  #nav {
+    display: none;
+  }
+  #left_section {
+    width: 60%;
+  }
+  #right_section {
+    display: block;
   }
 }
