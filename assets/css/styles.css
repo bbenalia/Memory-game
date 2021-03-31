@@ -97,8 +97,7 @@ body > main {
   min-width: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 8px;
 }
 #dataUser > p {
   color: white;
@@ -176,14 +175,51 @@ body > main {
   right: 0;
   background-color: #fdb500;
   width: 90%;
+  max-width: 280px;
   height: 70%;
   padding: 1%;
+  box-shadow: yellow 20px;
 }
-.navBar > div > img {
+.navBar > img {
   position: fixed;
   right: 0;
   width: 40px;
   padding: 1%;
+}
+.circle {
+  display: flex;
+  justify-content: space-between;
+}
+.circle >div{
+  border-radius: 50%;
+  background-color: rgb(255, 174, 0);
+  width: 10px;
+  height: 10px;
+}
+.circle2 {
+  display: flex;
+  justify-content: space-between;
+}
+.circle2 >div{
+  border-radius: 50%;
+  background-color: rgb(255, 174, 0);
+  width: 10px;
+  height: 10px;
+}
+#contentPlay{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#btnStart{
+  background-image: url("../img/start.png");
+  opacity: 1;
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  border:0;
+  background-color:none;
 }
 /*  
 =============================
