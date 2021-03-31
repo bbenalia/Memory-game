@@ -17,8 +17,6 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   /* overflow-x: hidden; */
 }
@@ -98,7 +96,6 @@ body > main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0;
   height: 100%;
 }
 .container-grid > div {
@@ -108,6 +105,10 @@ body > main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.container-grid > div img {
+  max-width: 110px;
+  width: 100%;
 }
 /* 
 =======================================
@@ -250,10 +251,20 @@ div#contentPlay p {
  ! finish page
 =======================================
  */
- img.win-mario{
-   /* width: 100%; */
-   height: 70%;
- }
+img.win-mario {
+  height: 70%;
+}
+#play-again {
+  padding: 0.9rem;
+  margin-top: 1rem;
+  width: 90%;
+  max-width: 300px;
+  border: 6px double var(--main-color);
+  color: var(--main-color);
+  font-family: "Press Start 2P", cursive;
+  font-size: 1em;
+  text-align: center;
+}
 
 /* 
 =======================================
@@ -310,6 +321,7 @@ div#contentPlay p {
   -webkit-animation: wrong 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   animation: wrong 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
 }
+
 @-webkit-keyframes wrong {
   0%,
   100% {
@@ -372,7 +384,8 @@ div#contentPlay p {
   -webkit-animation: matched 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
   animation: matched 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
-@-webkit-keyframes matched {
+
+@keyframes matched {
   0% {
     -webkit-transform: translateZ(0) translateY(0) translateX(0);
     transform: translateZ(0) translateY(0) translateX(0);
@@ -387,7 +400,7 @@ div#contentPlay p {
   }
 }
 
-@keyframes matched {
+@-webkit-keyframes matched {
   0% {
     -webkit-transform: translateZ(0) translateY(0) translateX(0);
     transform: translateZ(0) translateY(0) translateX(0);
@@ -424,7 +437,7 @@ div#contentPlay p {
   animation: pulsate 0.5s ease-in-out infinite both;
 }
 
-@keyframes pulsate-fwd {
+@-webkit-keyframes pulsate {
   0% {
     -webkit-transform: scale(1);
     transform: scale(1);
