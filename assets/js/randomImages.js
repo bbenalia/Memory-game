@@ -6,7 +6,10 @@ import {
   convertTime,
   getCurrentPlayer,
 } from "./scoring.js";
-import { arrImg, settings } from "./data.js";
+import {
+  arrImg,
+  settings
+} from "./data.js";
 
 let arrSorted = [];
 /*
@@ -85,6 +88,8 @@ function flipImage(event) {
   }
 }
 
+
+
 /*
  * this checks for matches images
  * @ Author:
@@ -99,12 +104,16 @@ function checkMatch() {
     arrChosen[0].id !== arrChosen[1].id
   ) {
     console.log("Match", idChosen);
+    images[arrChosen[0].id].classList.add("matched");
+    images[arrChosen[1].id].classList.add("matched");
     images[arrChosen[0].id].removeEventListener("click", flipImage, true);
     images[arrChosen[1].id].removeEventListener("click", flipImage, true);
     // store matched id's
     idChosen.push(arrChosen[0].id);
     idChosen.push(arrChosen[1].id);
   } else {
+    images[arrChosen[0].id].classList.add("wrong");
+    images[arrChosen[1].id].classList.add("wrong");
     images[arrChosen[0].id].src = "./assets/img/imagen4.png";
     images[arrChosen[1].id].src = "./assets/img/imagen4.png";
   }
@@ -147,7 +156,6 @@ function removeImagesClickEvent() {
 export function checkVictory() {
   if (idChosen.length === arrSorted.length) {
     manageUserTime("#contentPlay", false);
-    // alert(`Ganó...`);
     // reset ids matched
     idChosen.splice(0, idChosen.length);
     // calculate time
