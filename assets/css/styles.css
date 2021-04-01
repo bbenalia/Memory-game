@@ -92,6 +92,8 @@ body > main {
 .back {
   background-color: white;
   opacity: 1;
+  border-radius: 1px;
+  border: 6px outset rgb(209, 143, 0);
 }
 .container-grid {
   display: flex;
@@ -134,9 +136,12 @@ body > main {
   width: 90%;
   max-width: 450px;
   font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .user-name input {
-  width: 100%;
+  width: 50%;
 }
 #btnStart {
   background-image: url("../img/start.png");
@@ -288,6 +293,8 @@ img.win-mario {
   position: fixed;
   top: 0;
   right: 0;
+  border-radius: 5px;
+  border: 6px double #664901;
   background-color: var(--nav-color);
   width: 100%;
   max-width: 280px;
