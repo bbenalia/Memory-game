@@ -8,7 +8,7 @@ import {
 } from "./scoring.js";
 import {
   arrImg,
-  settings
+  settings,
 } from "./data.js";
 
 let arrSorted = [];
@@ -114,6 +114,11 @@ function checkMatch() {
     images[arrChosen[1].id].classList.add("wrong");
     images[arrChosen[0].id].src = "./assets/img/imagen4.png";
     images[arrChosen[1].id].src = "./assets/img/imagen4.png";
+    if (settings.hardMode){
+      setTimeout(()=> {
+        youLose();
+      }, 1000);
+    }
   }
   // win
   checkVictory();
@@ -186,4 +191,45 @@ export function manageUserTime(TagPlace, activate) {
   } else {
     clearInterval(timeInterval);
   }
+}
+
+/*
+ * All that has to happen when
+ * checkMatch fails in hardMode
+ * @ Author:
+ */
+import {
+  swapTemplate
+} from "./templates.js";
+import {
+  /*getScoring,
+  setName,*/
+  setScoreRanking,
+} from "./scoring.js";
+import {
+  startGame,
+} from "./game.js";
+
+function youLose(){
+  //checkVictory stuff
+  manageUserTime("#contentPlay", false);
+  idChosen.splice(0, idChosen.length);
+  setTime(gameTime());
+  scoring();
+  //checkMatch stuff
+  arrChosen = [];
+  addImagesClickEvent();
+  //goToPageFinish stuff
+  swapTemplate("lose", "left_section");
+  setScoreRanking("ol.list");
+  setScoreRanking("ol.listNav");
+  document
+        .getElementById("play-again")
+        .addEventListener("click", function(){
+          //handleStartAgain stuff
+          swapTemplate("registration", "left_section");
+          setTimeout(() => {
+            document.getElementById("btnStart").addEventListener("click", startGame);
+            }, 1000);
+        });
 }

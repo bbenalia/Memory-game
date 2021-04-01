@@ -9,8 +9,11 @@ import {
 import {
   getScoring,
   setName,
-  setScoreRanking
+  setScoreRanking,
 } from "./scoring.js";
+import {
+  settings,
+} from "./data.js";
 
 // initial template
 swapTemplate("registration", "left_section");
@@ -25,8 +28,9 @@ document.getElementById("btnStart").addEventListener("click", startGame);
  * changes to game template
  * @ Author:
  */
-function startGame() {
+export function startGame() {
   const namePlayer = document.getElementById("namePlayer");
+  checkGameMode();
   if (namePlayer.value.trim() != "") {
     setName(namePlayer.value);
     swapTemplate("play", "left_section");
@@ -112,4 +116,14 @@ function pruebasP() {
     }
   });
 
+}
+
+/*
+ * Check game mode and set imported variable
+ * game
+ * @ Author:
+ */
+function checkGameMode(){
+  let option = document.getElementById("mode");
+  if(option.value === "hard") {settings.hardMode = true}
 }
