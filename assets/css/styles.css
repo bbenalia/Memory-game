@@ -294,7 +294,6 @@ img.win-mario {
   height: 60px;
 }
 .navClose {
-  /* display: none; */
   visibility: hidden;
   position: fixed;
   top: 0;
@@ -302,12 +301,9 @@ img.win-mario {
   border-radius: 5px;
   border: 6px double #664901;
   background-color: var(--nav-color);
-  /* width: 100%; */
-  /* height: 70%; */
   width: 70px;
   height: 70px;
   max-width: 280px;
-  /* transform: translate(100vw, -50vh); */
 }
 .nav-animation {
   visibility: visible;
@@ -326,7 +322,6 @@ img.win-mario {
   right: 15px;
   top: 15px;
   width: 30px;
-  /* visibility: hidden; */
 }
 
 /* 
