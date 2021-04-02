@@ -10,6 +10,9 @@ import {
   arrImg,
   settings
 } from "./data.js";
+import {
+  playSound
+} from "./sound.js";
 
 let arrSorted = [];
 /*
@@ -109,11 +112,15 @@ function checkMatch() {
     // store matched id's
     idChosen.push(arrChosen[0].id);
     idChosen.push(arrChosen[1].id);
+    // play sound match
+    playSound("match");
   } else {
     images[arrChosen[0].id].classList.add("wrong");
     images[arrChosen[1].id].classList.add("wrong");
     images[arrChosen[0].id].src = "./assets/img/imagen4.png";
     images[arrChosen[1].id].src = "./assets/img/imagen4.png";
+    // play sound match
+    playSound("noMatch");
   }
   // win
   checkVictory();
