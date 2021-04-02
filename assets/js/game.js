@@ -1,22 +1,11 @@
-import {
-  swapTemplate
-} from "./templates.js";
-import {
-  playGame,
-  checkVictory,
-  manageUserTime
-} from "./randomImages.js";
-import {
-  getScoring,
-  setName,
-  setScoreRanking
-} from "./scoring.js";  playSound
-import {
-  playSound
-} from "./sound.js";
+import { swapTemplate } from "./templates.js";
+import { playGame, checkVictory } from "./randomImages.js";
+import { getScoring, setName, setScoreRanking } from "./scoring.js";
+import { playSound } from "./sound.js";
+
 // initial template
 swapTemplate("registration", "left_section");
-// ranking
+// ranking template
 swapTemplate("score", "right_section");
 
 // listener to start game boton
@@ -35,7 +24,7 @@ function startGame() {
 
     playGame();
     // listener
-    document.getElementById("board").addEventListener("click", goToPageFinish);
+    // document.getElementById("board").addEventListener("click", goToPageFinish);
     // score list
     setScoreRanking("ol.list");
     setScoreRanking("ol.listNav");
@@ -43,40 +32,9 @@ function startGame() {
     // Add Audio Start
     playSound("startSound");
     //TODO: pendiente sonido gameOver en la funcion HARD !!!!!
-
   } else {
     alert("Name required!");
   }
-}
-
-/*
- * this check victory and
- * delays the finish template
- * @ Author:
- */
-let arrUserLength = getScoring().length;
-
-function goToPageFinish() {
-  const arrayUsers = getScoring();
-  // delay event after checkvictory.
-  setTimeout(() => {
-    if (arrayUsers.length !== arrUserLength) {
-      checkVictory();
-      // swap to finish template
-      swapTemplate("finish", "left_section");
-      arrUserLength = arrayUsers.length;
-      // score list
-      setScoreRanking("ol.list");
-      setScoreRanking("ol.listNav");
-      // Listener
-      document
-        .getElementById("play-again")
-        .addEventListener("click", handleStartAgain);
-      // Sound Level Completed
-      playSound("levelCompleted");  
-          
-    }
-  }, 700);
 }
 
 /*
@@ -106,24 +64,49 @@ document.getElementById("open").addEventListener("click", function () {
   var closed = document.getElementById("close");
   closed.classList.add("nav-animation");
   // Sound Coin NavBar
-  playSound("openCoin"); 
+  playSound("openCoin");
 });
 
 /*
- * this function clean the wrong animation
- * game 
+ * this listener wait for animations end
  * @ Author:
  */
-document.addEventListener("animationend", pruebasP);
-function pruebasP() {
-  const allImages = document.querySelectorAll("img[data-id]");
 
-  allImages.forEach(element => {
+document.addEventListener("animationend", handleAnimationEnd);
+
+let arrUserLength = getScoring().length;
+function handleAnimationEnd() {
+  // clean animations
+  cleanAnimations();
+  // if game finished
+  const arrayUsers = getScoring();
+  if (arrayUsers.length !== arrUserLength) {
+    checkVictory();
+    // swap to finish template
+    swapTemplate("finish", "left_section");
+    // score list
+    setScoreRanking("ol.list");
+    setScoreRanking("ol.listNav");
+    // Listener
+    document
+      .getElementById("play-again")
+      .addEventListener("click", handleStartAgain);
+    // Sound Level Completed
+    playSound("levelCompleted");
+    arrUserLength = arrayUsers.length;
+  }
+}
+
+/*
+ * this function clean the wrong animation
+ * game
+ * @ Author:
+ */
+function cleanAnimations() {
+  const allImages = document.querySelectorAll("img[data-id]");
+  allImages.forEach((element) => {
     if (element.classList.contains("wrong")) {
       element.classList.remove("wrong");
     }
   });
-  
-
 }
-
