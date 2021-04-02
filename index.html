@@ -18,6 +18,9 @@
             <div id="open" class="navOpen">
                 <img src="assets/img/menu.png" alt="">
             </div>
+            <audio  id="openCoin">
+                <source src="./assets/sound/openCoin.wav" type="audio/wav">
+            </audio>
             <div id="close" class="navClose">
                 <img src="assets/img/close.svg" alt="">
                 <div class="containers">
@@ -43,6 +46,10 @@
             </div>
             <input id="btnStart" class="pulsate">
         </div>
+        <!-- Play Sound Start Game -->
+        <audio autoplay loop >
+            <source src="./assets/sound/comienzo.mp3" type="audio/mpeg">
+        </audio>
     </template>
     <!-- Page finish win template -->
     <template id="finish">
@@ -52,6 +59,9 @@
             <img class="win-mario" src="./assets/img/Mario-Jump-Gif.gif" alt="Gif win">
             <button id="play-again">Play Again</button>
         </div>
+        <audio  id="levelCompleted">
+            <source src="./assets/sound/levelCompleted.wav" type="audio/wav">
+        </audio>
     </template>
     <template id="lose">
         <div class="container back">
@@ -59,6 +69,9 @@
             <p>Win/Lose Text</p>
             <button id="play-again">Play Again</button>
         </div>
+        <audio  id="gameOver">
+            <source src="./assets/sound/gameOver.mp3" type="audio/mpeg">
+        </audio> 
     </template>
     <!-- score container template -->
     <template id="score">
@@ -85,18 +98,20 @@
             </div> -->
         </div>
         <div id="board" class="container-grid">
-        </div>
+        </div>  
+        <audio id="startSound">
+            <source src="./assets/sound/start.wav" type="audio/wav">
+        </audio> 
+        <audio  id="match">
+            <source src="./assets/sound/match.wav" type="audio/wav">
+        </audio> 
+        <audio  id="noMatch">
+            <source src="./assets/sound/noMatch.wav" type="audio/wav">
+        </audio> 
     </template>
 </body>
 
 
-<!-- <script src="./assets/file/templates.js"></script>
-<script>
-    swapTemplate('registration', 'left_section');
-    swapTemplate('score', 'right_section');
-</script>
-<script src="./assets/js/randomImages.js"></script>
-<script src="./assets/js/scoring.js"></script> -->
 <script src="./assets/js/game.js" type="module"></script>
 
 

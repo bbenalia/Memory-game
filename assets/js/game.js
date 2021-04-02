@@ -10,8 +10,10 @@ import {
   getScoring,
   setName,
   setScoreRanking
-} from "./scoring.js";
-
+} from "./scoring.js";  playSound
+import {
+  playSound
+} from "./sound.js";
 // initial template
 swapTemplate("registration", "left_section");
 // ranking
@@ -37,6 +39,11 @@ function startGame() {
     // score list
     setScoreRanking("ol.list");
     setScoreRanking("ol.listNav");
+
+    // Add Audio Start
+    playSound("startSound");
+    //TODO: pendiente sonido gameOver en la funcion HARD !!!!!
+
   } else {
     alert("Name required!");
   }
@@ -65,6 +72,9 @@ function goToPageFinish() {
       document
         .getElementById("play-again")
         .addEventListener("click", handleStartAgain);
+      // Sound Level Completed
+      playSound("levelCompleted");  
+          
     }
   }, 700);
 }
@@ -95,11 +105,13 @@ document.getElementById("close").addEventListener("click", function () {
 document.getElementById("open").addEventListener("click", function () {
   var closed = document.getElementById("close");
   closed.classList.add("nav-animation");
+  // Sound Coin NavBar
+  playSound("openCoin"); 
 });
 
 /*
  * this function clean the wrong animation
- * game
+ * game 
  * @ Author:
  */
 document.addEventListener("animationend", pruebasP);
@@ -111,5 +123,7 @@ function pruebasP() {
       element.classList.remove("wrong");
     }
   });
+  
 
 }
+
