@@ -21,10 +21,8 @@ function startGame() {
   if (namePlayer.value.trim() != "") {
     setName(namePlayer.value);
     swapTemplate("play", "left_section");
-
+    // load game
     playGame();
-    // listener
-    // document.getElementById("board").addEventListener("click", goToPageFinish);
     // score list
     setScoreRanking("ol.list");
     setScoreRanking("ol.listNav");
@@ -71,7 +69,6 @@ document.getElementById("open").addEventListener("click", function () {
  * this listener wait for animations end
  * @ Author:
  */
-
 document.addEventListener("animationend", handleAnimationEnd);
 
 let arrUserLength = getScoring().length;

@@ -273,8 +273,9 @@ img.win-mario {
   cursor: pointer;
 }
 .shadow:hover {
-  -webkit-animation: shadow-drop-2-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: shadow-drop-2-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: shadow-drop-2-center 1s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: shadow-drop-2-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 /* 
 =======================================
@@ -293,22 +294,26 @@ img.win-mario {
   height: 60px;
 }
 .navClose {
-  display: none;
+  /* display: none; */
+  visibility: hidden;
   position: fixed;
   top: 0;
   right: 0;
   border-radius: 5px;
   border: 6px double #664901;
   background-color: var(--nav-color);
-  width: 100%;
+  /* width: 100%; */
+  /* height: 70%; */
+  width: 70px;
+  height: 70px;
   max-width: 280px;
-  height: 70%;
+  /* transform: translate(100vw, -50vh); */
 }
 .nav-animation {
-  display: block;
-  transform: translateX(0vw);
-  transform-origin: (0, 100);
-  transition: transform 2s ease-in-out;
+  visibility: visible;
+  height: 70%;
+  width: 100%;
+  transition: height 0.5s ease-out, width 1s ease-out;
 }
 .navClose div {
   padding-top: 50px;
