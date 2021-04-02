@@ -1,7 +1,7 @@
 import { swapTemplate } from "./templates.js";
 import { playGame, checkVictory } from "./randomImages.js";
 import { getScoring, setName, setScoreRanking } from "./scoring.js";
-import { playSound } from "./sound.js";
+import { playSound, toggleMuteSound } from "./sound.js";
 
 // initial template
 swapTemplate("registration", "left_section");
@@ -107,3 +107,18 @@ function cleanAnimations() {
     }
   });
 }
+
+/*
+ * this function adds registration sound
+ * @ Author:
+ */
+const divVolume = document.querySelector(".volume-mute");
+divVolume.addEventListener("click", function () {
+  const d = document;
+  d.querySelectorAll(".icon").forEach((element) => {
+    element.classList.toggle("volume-show");
+  });
+  // play and toggle sound
+  playSound("register-sound");
+  toggleMuteSound("register-sound");
+});

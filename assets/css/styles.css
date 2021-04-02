@@ -153,6 +153,16 @@ body > main {
   outline: none;
   cursor: pointer;
 }
+div.icon{
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  visibility: hidden;
+}
+div.volume-show {
+  visibility: visible;
+} 
 /* 
 =======================================
  ! Scoring styles

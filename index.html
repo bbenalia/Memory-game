@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://kit.fontawesome.com/ecea200bd3.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/vnd.microsoft.icon" href="./assets/img/favicon.ico">
     <title>Memory Game</title>
     <link
@@ -19,7 +20,7 @@
             <div id="open" class="navOpen">
                 <img src="assets/img/menu.png" alt="">
             </div>
-            <audio  id="openCoin" preload="auto">
+            <audio id="openCoin" preload="auto">
                 <source src="./assets/sound/openCoin.wav" type="audio/wav">
             </audio>
             <div id="close" class="navClose">
@@ -37,6 +38,14 @@
     <!-- page registration template -->
     <template id="registration">
         <div class="container back">
+            <div class="volume-mute">
+                <div class="icon volume-show">
+                    <i class="fas fa-volume-mute"></i>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-volume-up"></i>
+                </div>
+            </div>
             <div class="title rotating-border">
                 <p>Mario Bros 3 </p>
             </div>
@@ -48,7 +57,7 @@
             <input id="btnStart" class="pulsate">
         </div>
         <!-- Play Sound Start Game -->
-        <audio autoplay loop preload="auto">
+        <audio id="register-sound" loop muted preload="auto">
             <source src="./assets/sound/comienzo.mp3" type="audio/mpeg">
         </audio>
     </template>
@@ -60,7 +69,7 @@
             <img class="win-mario" src="./assets/img/Mario-Jump-Gif.gif" alt="Gif win">
             <button id="play-again" class="shadow">Play Again</button>
         </div>
-        <audio  id="levelCompleted" preload="auto">
+        <audio id="levelCompleted" preload="auto">
             <source src="./assets/sound/levelCompleted.wav" type="audio/wav">
         </audio>
     </template>
@@ -70,9 +79,9 @@
             <p>Win/Lose Text</p>
             <button id="play-again">Play Again</button>
         </div>
-        <audio  id="gameOver" preload="auto">
+        <audio id="gameOver" preload="auto">
             <source src="./assets/sound/gameOver.mp3" type="audio/mpeg">
-        </audio> 
+        </audio>
     </template>
     <!-- score container template -->
     <template id="score">
@@ -99,16 +108,16 @@
             </div> -->
         </div>
         <div id="board" class="container-grid">
-        </div>  
+        </div>
         <audio id="startSound" preload="auto">
             <source src="./assets/sound/start.wav" type="audio/wav">
-        </audio> 
-        <audio  id="match" preload="auto">
+        </audio>
+        <audio id="match" preload="auto">
             <source src="./assets/sound/match.wav" type="audio/wav">
-        </audio> 
-        <audio  id="noMatch" preload="auto">
+        </audio>
+        <audio id="noMatch" preload="auto">
             <source src="./assets/sound/noMatch.wav" type="audio/wav">
-        </audio> 
+        </audio>
     </template>
 </body>
 
