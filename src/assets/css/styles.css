@@ -183,10 +183,15 @@ ol.list-styles > li {
   display: flex;
   position: relative;
   counter-increment: counterName;
+  /* justify-content: space-around; */
 }
-ol.list-styles > li p {
+ol.list-styles > li p:nth-child(2) {
   position: absolute;
   right: 1rem;
+}
+ol.list-styles > li p:nth-child(1) {
+  position: absolute;
+  right: 3.5rem;
 }
 ol.list-styles > li:before {
   content: counter(counterName);
@@ -270,6 +275,11 @@ div#contentPlay p {
 img.win-mario {
   height: 70%;
 }
+img.lose-mario {
+  height: 70%;
+  width: 100%;
+  max-width: 350px;
+}
 #play-again {
   padding: 0.9rem;
   margin-top: 1rem;
@@ -319,7 +329,7 @@ img.win-mario {
   visibility: visible;
   height: 70%;
   width: 100%;
-  transition: height 0.5s ease-out, width 1s ease-out;
+  transition: height 0.2s ease-out, width 0.2s ease-out;
 }
 .navClose div {
   padding-top: 50px;
@@ -517,6 +527,7 @@ img.win-mario {
   .title {
     font-size: 1.3em;
   }
+
 }
 
 /* Desktop */

@@ -1,13 +1,15 @@
 import { swapTemplate } from "./templates.js";
-import { playGame, checkVictory } from "./randomImages.js";
+import { playGame, checkVictory, manageUserTime } from "./randomImages.js";
 import { getScoring, setName, setScoreRanking } from "./scoring.js";
 import { playSound, toggleMuteSound } from "./sound.js";
+import { settings } from "./data.js";
 
 // initial template
 swapTemplate("registration", "left_section");
 // ranking template
 swapTemplate("score", "right_section");
-
+// unmute sound
+registerPageSound(".volume-mute");
 // listener to start game boton
 document.getElementById("btnStart").addEventListener("click", startGame);
 
@@ -19,6 +21,9 @@ document.getElementById("btnStart").addEventListener("click", startGame);
 function startGame() {
   const namePlayer = document.getElementById("namePlayer");
   if (namePlayer.value.trim() != "") {
+    // check mode: hard or easy
+    checkGameMode();
+    // store data
     setName(namePlayer.value);
     swapTemplate("play", "left_section");
     // load game
@@ -26,25 +31,11 @@ function startGame() {
     // score list
     setScoreRanking("ol.list");
     setScoreRanking("ol.listNav");
-
     // Add Audio Start
     playSound("startSound");
-    //TODO: pendiente sonido gameOver en la funcion HARD !!!!!
   } else {
     alert("Name required!");
   }
-}
-
-/*
- * This starts again the game
- * @ Author:
- */
-function handleStartAgain() {
-  swapTemplate("registration", "left_section");
-  setTimeout(() => {
-    // listener to start game boton
-    document.getElementById("btnStart").addEventListener("click", startGame);
-  }, 1000);
 }
 
 /*
@@ -109,16 +100,46 @@ function cleanAnimations() {
 }
 
 /*
+ * Check game mode and set imported variable
+ * game
+ * @ Author:
+ */
+function checkGameMode() {
+  let option = document.getElementById("mode");
+  if (option.value === "hard") {
+    settings.hardMode = true;
+  } else {
+    settings.hardMode = false;
+  }
+}
+
+/*
+ * This starts again the game
+ * @ Author:
+ */
+export function handleStartAgain() {
+  swapTemplate("registration", "left_section");
+  registerPageSound(".volume-mute");
+  setTimeout(() => {
+    // listener to start game boton
+    document.getElementById("btnStart").addEventListener("click", startGame);
+    // unmute sound
+  }, 1000);
+}
+
+/*
  * this function adds registration sound
  * @ Author:
  */
-const divVolume = document.querySelector(".volume-mute");
-divVolume.addEventListener("click", function () {
+export function registerPageSound(selector) {
   const d = document;
-  d.querySelectorAll(".icon").forEach((element) => {
-    element.classList.toggle("volume-show");
+  const divVolume = document.querySelector(selector);
+  divVolume.addEventListener("click", function () {
+    d.querySelectorAll(".icon").forEach((element) => {
+      element.classList.toggle("volume-show");
+    });
+    // play and toggle sound
+    playSound("register-sound");
+    toggleMuteSound("register-sound");
   });
-  // play and toggle sound
-  playSound("register-sound");
-  toggleMuteSound("register-sound");
-});
+}

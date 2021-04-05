@@ -36,4 +36,5 @@ export const arrImg = [
   export const settings = {
     timePrePlay: 3000,
     timeFlipImage: 300,
+    hardMode: false,
   };
