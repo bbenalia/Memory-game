@@ -51,13 +51,15 @@
             </div>
             <!-- <h2>Choose a user name</h2> -->
             <div class="user-name">
-                <label>User Name:</label><br>
-                <input id="namePlayer" type="text" class="name" maxlength="6"><br>
+                <label>User Name:</label>
+                <input id="namePlayer" type="text" class="name" maxlength="6">
                 <label for="mode">Difficulty:</label>
-                <select name="mode" id="mode">
-                    <option value="easy">Easy</option>
-                    <option value="hard">Hard</option>
-                </select>
+                <div class="select shadow">
+                    <select name="mode" id="mode" required>
+                        <option value="easy">Easy</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
             </div>
             <input id="btnStart" class="pulsate">
         </div>
