@@ -51,6 +51,20 @@ body > main {
  ! main design styles
 =======================================
  */
+.fa-volume-mute:before {
+  content: "\f6a9";
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 1%;
+}
+.fa-volume-up:before {
+  content: "\f028";
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 1%;
+}
 #left_section {
   position: relative;
   margin: 0% 1%;
