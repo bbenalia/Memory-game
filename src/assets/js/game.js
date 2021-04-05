@@ -2,7 +2,7 @@ import { swapTemplate } from "./templates.js";
 import { playGame, checkVictory, manageUserTime } from "./randomImages.js";
 import { getScoring, setName, setScoreRanking } from "./scoring.js";
 import { playSound, toggleMuteSound } from "./sound.js";
-import {settings} from "./data.js";
+import { settings } from "./data.js";
 
 // initial template
 swapTemplate("registration", "left_section");
@@ -130,7 +130,11 @@ divVolume.addEventListener("click", function () {
  * game
  * @ Author:
  */
-function checkGameMode(){
+function checkGameMode() {
   let option = document.getElementById("mode");
-  if(option.value === "hard") {settings.hardMode = true}
+  if (option.value === "hard") {
+    settings.hardMode = true;
+  } else {
+    settings.hardMode = false;
+  }
 }

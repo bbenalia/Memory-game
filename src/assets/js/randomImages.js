@@ -5,6 +5,7 @@ import {
   gameTime,
   convertTime,
   getCurrentPlayer,
+  clearCurrentPlayer,
 } from "./scoring.js";
 import { arrImg, settings } from "./data.js";
 import { playSound } from "./sound.js";
@@ -49,7 +50,7 @@ export function playGame() {
     const div = document.createElement("div");
     setTimeout(() => {
       // add cover image
-      img.setAttribute("src", "./assets/img/imagen4.png");
+      //img.setAttribute("src", "./assets/img/imagen4.png");
       // add eventListeners
       img.addEventListener("click", flipImage, true);
       // set time count score
@@ -211,7 +212,8 @@ function youLose() {
   manageUserTime("#contentPlay", false);
   idChosen.splice(0, idChosen.length);
   setTime(gameTime());
-  scoring();
+  // scoring();
+  clearCurrentPlayer();
   //checkMatch stuff
   arrChosen = [];
   addImagesClickEvent();
@@ -219,6 +221,7 @@ function youLose() {
   swapTemplate("lose", "left_section");
   setScoreRanking("ol.list");
   setScoreRanking("ol.listNav");
+
   document.getElementById("play-again").addEventListener("click", function () {
     //handleStartAgain stuff
     swapTemplate("registration", "left_section");

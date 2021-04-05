@@ -46,11 +46,27 @@ export function setTime(time) {
  */
 export function scoring() {
   // clone main object
+  if (settings.hardMode) {
+    objUser.mode = "Hard";
+    console.log("scoring hard");
+  } else {
+    objUser.mode = "Easy";
+    console.log("scoring easy");
+  }
   const cloneObj = { ...objUser };
   arrUser.push(cloneObj);
+  console.log(arrUser);
   // reset main object
   objUser.name = "";
   objUser.time = "";
+  objUser.mode = "";
+}
+
+export function clearCurrentPlayer() {
+  // reset main object
+  objUser.name = "";
+  objUser.time = "";
+  objUser.mode = "";
 }
 
 export function getScoring() {
@@ -89,11 +105,22 @@ export function setScoreRanking(ulSelector) {
   arrUser.forEach((element) => {
     const liScore = d.createElement("li");
     const p = d.createElement("p");
+    const pm = d.createElement("p");
     liScore.textContent = element.name;
     p.textContent = convertTime(element.time);
+    if (element.mode === "Hard") {
+      // console.log("ranking hard");
+      pm.textContent = "Hard";
+    } else {
+      // console.log("ranking easy");
+      pm.textContent = "Easy";
+    }
+    // console.log(element.mode);
+    // console.log(objUser);
+
     liScore.appendChild(p);
+    liScore.appendChild(pm);
     // inject in DOM
     ulList.appendChild(liScore);
   });
-
 }

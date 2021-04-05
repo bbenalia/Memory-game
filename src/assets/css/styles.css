@@ -183,10 +183,15 @@ ol.list-styles > li {
   display: flex;
   position: relative;
   counter-increment: counterName;
+  /* justify-content: space-around; */
 }
-ol.list-styles > li p {
+ol.list-styles > li p:nth-child(2) {
   position: absolute;
   right: 1rem;
+}
+ol.list-styles > li p:nth-child(1) {
+  position: absolute;
+  right: 3.5rem;
 }
 ol.list-styles > li:before {
   content: counter(counterName);
