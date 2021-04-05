@@ -66,7 +66,7 @@ document.getElementById("open").addEventListener("click", function () {
 });
 
 /*
- * this listener wait for animations end
+ * This listener wait for animations end
  * @ Author:
  */
 document.addEventListener("animationend", handleAnimationEnd);
@@ -95,7 +95,7 @@ function handleAnimationEnd() {
 }
 
 /*
- * this function clean the wrong animation
+ * This function clean the wrong animation
  * game
  * @ Author:
  */
