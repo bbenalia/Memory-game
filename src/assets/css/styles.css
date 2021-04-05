@@ -142,6 +142,7 @@ body > main {
 }
 .user-name input {
   width: 50%;
+  margin: 0.5rem;
 }
 #btnStart {
   background-image: url("../img/start.png");
@@ -265,6 +266,72 @@ div#contentPlay p {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+/*
+======================================= 
+! Choose mode icon
+=======================================
+*/
+/* Reset Select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  
+  border: 0 !important;
+  background: #fff;
+  color: var(--main-color);
+  background-image: none;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  width: 70%;
+  height: 2em;
+  margin: 0.5rem;
+  line-height: 3;
+  border: 6px double var(--main-color);
+  background: #fff;
+  overflow: hidden;
+  border-radius: .25em;
+}
+
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: -50%;
+  right: 0;
+  padding: 0 1em;
+  background: #fff;
+  color: var(--main-color);
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+/* Transition */
+.select:hover::after {
+  color: black;
 }
 
 /* 
@@ -516,7 +583,6 @@ img.win-mario {
  ! Media queries
 =======================================
  */
-
 /* Tablet */
 @media only screen and (min-width: 500px) {
   .title {
