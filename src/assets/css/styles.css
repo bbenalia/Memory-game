@@ -91,6 +91,7 @@ body > main {
   justify-content: center;
   height: 100%;
   width: 100%;
+  padding: 2%;
   border-radius: 20px;
 }
 .score-container {
@@ -200,11 +201,11 @@ ol.list-styles > li {
   counter-increment: counterName;
   /* justify-content: space-around; */
 }
-ol.list-styles > li p:nth-child(2) {
+ol.list-styles > li p:nth-child(1) {
   position: absolute;
   right: 1rem;
 }
-ol.list-styles > li p:nth-child(1) {
+ol.list-styles > li p:nth-child(2) {
   position: absolute;
   right: 3.5rem;
 }
@@ -360,6 +361,7 @@ img.lose-mario {
   height: 70%;
   width: 100%;
   max-width: 350px;
+  max-height: 350px;
 }
 #play-again {
   padding: 0.9rem;
@@ -607,7 +609,6 @@ img.lose-mario {
   .title {
     font-size: 1.3em;
   }
-
 }
 
 /* Desktop */

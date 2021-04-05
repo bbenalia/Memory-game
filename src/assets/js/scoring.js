@@ -12,7 +12,7 @@ export function timeStart() {
 }
 
 export function gameTime() {
-  let time = new Date() - startDate;
+   let time = new Date() - startDate;
   return time;
 }
 
@@ -98,8 +98,12 @@ export function setScoreRanking(ulSelector) {
     // inject in DOM
     ulList.appendChild(liScore);
   }
+  // sort
+  const arrOrdered = arrUser.sort(function (a, b) {
+    return a.time - b.time;
+  });
   // loop for print elements in ul
-  arrUser.forEach((element) => {
+  arrOrdered.forEach((element) => {
     const liScore = d.createElement("li");
     const p = d.createElement("p");
     const pm = d.createElement("p");
