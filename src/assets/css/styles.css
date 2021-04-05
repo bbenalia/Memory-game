@@ -324,7 +324,7 @@ img.win-mario {
   visibility: visible;
   height: 70%;
   width: 100%;
-  transition: height 0.5s ease-out, width 1s ease-out;
+  transition: height 0.2s ease-out, width 0.2s ease-out;
 }
 .navClose div {
   padding-top: 50px;
