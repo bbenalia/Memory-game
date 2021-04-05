@@ -8,12 +8,10 @@ import {
   clearCurrentPlayer,
 } from "./scoring.js";
 import { arrImg, settings } from "./data.js";
-import { playSound } from "./sound.js";
-
-//TODO: Mirar esto
+import { playSound, toggleMuteSound } from "./sound.js";
 import { swapTemplate } from "./templates.js";
 import { setScoreRanking } from "./scoring.js";
-import { startGame } from "./game.js";
+import { handleStartAgain } from "./game.js";
 
 let arrSorted = [];
 /*
@@ -105,7 +103,6 @@ function checkMatch() {
     arrChosen[0].name === arrChosen[1].name &&
     arrChosen[0].id !== arrChosen[1].id
   ) {
-    // console.log("Match", idChosen);
     images[arrChosen[0].id].classList.add("matched");
     images[arrChosen[1].id].classList.add("matched");
     images[arrChosen[0].id].removeEventListener("click", flipImage, true);
@@ -221,12 +218,10 @@ function youLose() {
   swapTemplate("lose", "left_section");
   setScoreRanking("ol.list");
   setScoreRanking("ol.listNav");
+  // lose sound
+  playSound("gameOver");
 
-  document.getElementById("play-again").addEventListener("click", function () {
-    //handleStartAgain stuff
-    swapTemplate("registration", "left_section");
-    setTimeout(() => {
-      document.getElementById("btnStart").addEventListener("click", startGame);
-    }, 1000);
-  });
+  document
+    .getElementById("play-again")
+    .addEventListener("click", handleStartAgain);
 }
