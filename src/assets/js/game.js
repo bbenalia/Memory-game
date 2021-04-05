@@ -1,7 +1,8 @@
 import { swapTemplate } from "./templates.js";
-import { playGame, checkVictory } from "./randomImages.js";
+import { playGame, checkVictory, manageUserTime } from "./randomImages.js";
 import { getScoring, setName, setScoreRanking } from "./scoring.js";
 import { playSound, toggleMuteSound } from "./sound.js";
+import {settings} from "./data.js";
 
 // initial template
 swapTemplate("registration", "left_section");
@@ -16,8 +17,9 @@ document.getElementById("btnStart").addEventListener("click", startGame);
  * changes to game template
  * @ Author:
  */
-function startGame() {
+export function startGame() {
   const namePlayer = document.getElementById("namePlayer");
+  checkGameMode();
   if (namePlayer.value.trim() != "") {
     setName(namePlayer.value);
     swapTemplate("play", "left_section");
@@ -122,3 +124,13 @@ divVolume.addEventListener("click", function () {
   playSound("register-sound");
   toggleMuteSound("register-sound");
 });
+
+/*
+ * Check game mode and set imported variable
+ * game
+ * @ Author:
+ */
+function checkGameMode(){
+  let option = document.getElementById("mode");
+  if(option.value === "hard") {settings.hardMode = true}
+}

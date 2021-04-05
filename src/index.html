@@ -52,7 +52,12 @@
             <!-- <h2>Choose a user name</h2> -->
             <div class="user-name">
                 <label>User Name:</label><br>
-                <input id="namePlayer" type="text" class="name">
+                <input id="namePlayer" type="text" class="name"><br>
+                <label for="mode">Difficulty:</label>
+                <select name="mode" id="mode">
+                    <option value="easy">Easy</option>
+                    <option value="hard">Hard</option>
+                </select>
             </div>
             <input id="btnStart" class="pulsate">
         </div>
@@ -64,8 +69,6 @@
     <!-- Page finish win template -->
     <template id="finish">
         <div class="container back">
-            <!-- <h1>Win/Lose Title</h1>
-            <p>Win/Lose Text</p> -->
             <img class="win-mario" src="./assets/img/Mario-Jump-Gif.gif" alt="Gif win">
             <button id="play-again" class="shadow">Play Again</button>
         </div>
@@ -75,8 +78,8 @@
     </template>
     <template id="lose">
         <div class="container back">
-            <h1>Win/Lose Title</h1>
-            <p>Win/Lose Text</p>
+            <h1>Lose Title</h1>
+            <p>Lose Text</p>
             <button id="play-again">Play Again</button>
         </div>
         <audio id="gameOver" preload="auto">
@@ -102,10 +105,6 @@
             </div>
             <div id="contentPlay">
             </div>
-            <!-- <div class="circle2">
-                <div></div>
-                <div></div>
-            </div> -->
         </div>
         <div id="board" class="container-grid">
         </div>

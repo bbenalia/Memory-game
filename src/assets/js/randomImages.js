@@ -6,13 +6,13 @@ import {
   convertTime,
   getCurrentPlayer,
 } from "./scoring.js";
-import {
-  arrImg,
-  settings
-} from "./data.js";
-import {
-  playSound
-} from "./sound.js";
+import { arrImg, settings } from "./data.js";
+import { playSound } from "./sound.js";
+
+//TODO: Mirar esto
+import { swapTemplate } from "./templates.js";
+import { setScoreRanking } from "./scoring.js";
+import { startGame } from "./game.js";
 
 let arrSorted = [];
 /*
@@ -121,6 +121,12 @@ function checkMatch() {
     images[arrChosen[1].id].src = "./assets/img/imagen4.png";
     // play sound match
     playSound("noMatch");
+
+    if (settings.hardMode) {
+      setTimeout(() => {
+        youLose();
+      }, 1000);
+    }
   }
   // win
   checkVictory();
@@ -193,4 +199,31 @@ export function manageUserTime(TagPlace, activate) {
   } else {
     clearInterval(timeInterval);
   }
+}
+
+/*
+ * All that has to happen when
+ * checkMatch fails in hardMode
+ * @ Author:
+ */
+function youLose() {
+  //checkVictory stuff
+  manageUserTime("#contentPlay", false);
+  idChosen.splice(0, idChosen.length);
+  setTime(gameTime());
+  scoring();
+  //checkMatch stuff
+  arrChosen = [];
+  addImagesClickEvent();
+  //goToPageFinish stuff
+  swapTemplate("lose", "left_section");
+  setScoreRanking("ol.list");
+  setScoreRanking("ol.listNav");
+  document.getElementById("play-again").addEventListener("click", function () {
+    //handleStartAgain stuff
+    swapTemplate("registration", "left_section");
+    setTimeout(() => {
+      document.getElementById("btnStart").addEventListener("click", startGame);
+    }, 1000);
+  });
 }
