@@ -275,6 +275,11 @@ div#contentPlay p {
 img.win-mario {
   height: 70%;
 }
+img.lose-mario {
+  height: 70%;
+  width: 100%;
+  max-width: 350px;
+}
 #play-again {
   padding: 0.9rem;
   margin-top: 1rem;
@@ -522,6 +527,7 @@ img.win-mario {
   .title {
     font-size: 1.3em;
   }
+
 }
 
 /* Desktop */
