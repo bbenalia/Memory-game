@@ -48,7 +48,7 @@ export function playGame() {
     const div = document.createElement("div");
     setTimeout(() => {
       // add cover image
-      //img.setAttribute("src", "./assets/img/imagen4.png");
+      img.setAttribute("src", "./assets/img/imagen4.png");
       // add eventListeners
       img.addEventListener("click", flipImage, true);
       // set time count score
@@ -179,12 +179,12 @@ export function checkVictory() {
  * in play screen
  * @ Author:
  */
+let timeInterval = null;
 export function manageUserTime(TagPlace, activate) {
   const d = document,
     v = d.querySelector(TagPlace),
     pTime = d.createElement("p"),
     pName = d.createElement("p");
-  let timeInterval = null;
   if (activate) {
     timeInterval = setInterval(() => {
       const name = getCurrentPlayer().name;
