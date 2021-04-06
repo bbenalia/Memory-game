@@ -4,6 +4,10 @@ import { getScoring, setName, setScoreRanking } from "./scoring.js";
 import { playSound, toggleMuteSound } from "./sound.js";
 import { settings } from "./data.js";
 
+// initial loading
+loading();
+
+setTimeout(() => {
 // initial template
 swapTemplate("registration", "left_section");
 // ranking template
@@ -12,6 +16,37 @@ swapTemplate("score", "right_section");
 registerPageSound(".volume-mute");
 // listener to start game boton
 document.getElementById("btnStart").addEventListener("click", startGame);
+/*
+ * This displays the score icon in
+ * mobile version
+ * @ Author:
+ */
+document.getElementById("close").addEventListener("click", function () {
+  var closed = document.getElementById("close");
+  if (closed.classList.contains("nav-animation")) {
+    closed.classList.remove("nav-animation");
+  }
+});
+document.getElementById("open").addEventListener("click", function () {
+  var closed = document.getElementById("close");
+  closed.classList.add("nav-animation");
+  // Sound Coin NavBar
+  playSound("openCoin");
+});
+}, settings.timeLoading);
+
+/*
+ * Load template and animation
+ * @ Author:
+ */
+function loading(){
+  swapTemplate("loadingL", "left_section");
+  swapTemplate("loadingR", "right_section");
+  document.body.className='blur';
+
+  setTimeout("document.body.className='noblur'", settings.timeLoading);
+}
+
 
 /*
  * This starts the game and
@@ -37,24 +72,6 @@ function startGame() {
     alert("Name required!");
   }
 }
-
-/*
- * This displays the score icon in
- * mobile version
- * @ Author:
- */
-document.getElementById("close").addEventListener("click", function () {
-  var closed = document.getElementById("close");
-  if (closed.classList.contains("nav-animation")) {
-    closed.classList.remove("nav-animation");
-  }
-});
-document.getElementById("open").addEventListener("click", function () {
-  var closed = document.getElementById("close");
-  closed.classList.add("nav-animation");
-  // Sound Coin NavBar
-  playSound("openCoin");
-});
 
 /*
  * This listener wait for animations end

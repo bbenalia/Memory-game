@@ -426,7 +426,62 @@ img.lose-mario {
   top: 15px;
   width: 30px;
 }
-
+/* 
+=======================================
+ ! loading styles
+=======================================
+ */
+.loaddiv {
+  filter: blur(7px);
+}
+.blur { 
+  backdrop-filter: blur(7px);
+}
+.noblur {
+  filter: blur(0px);
+  backdrop-filter: blur(1.5px);
+}
+/*.load {
+  height: 30%;
+  width: 80%;
+}*/
+.loadbar { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 200px;
+  width: 200px;
+  position: fixed;
+  top: 35%;
+  right:auto;
+  left: 24%;
+  opacity: 1;
+  border-radius: 1px;
+  border: 3px outset rgb(209, 143, 0);
+  background: #fff;
+  padding: 10px;
+}
+.loadbar > div {
+  display: block;
+  height: 20px;
+  width: 100%;
+  border: 3px outset rgb(209, 143, 0);
+  position: relative;
+  overflow: hidden;
+}
+.loadbar > div > span {
+  display: block;
+  height: 20px;
+  width: 100%;
+  background: #242424;
+  position: relative;
+  overflow: hidden;
+  animation: loading 2.5s linear;
+}
+img.run-mario {
+  height: 70%;
+}
 /* 
 =======================================
  ! Animations
@@ -599,6 +654,20 @@ img.lose-mario {
     box-shadow: 0 0 20px 0px var(--main-color);
   }
 }
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+
+  90% {
+    width: 100%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
 /* 
 =======================================
  ! Media queries
@@ -608,6 +677,10 @@ img.lose-mario {
 @media only screen and (min-width: 500px) {
   .title {
     font-size: 1.3em;
+  }
+  .loadbar { 
+    top: 30%;
+    left: 32%;
   }
 }
 
@@ -625,5 +698,9 @@ img.lose-mario {
   }
   #right_section {
     display: block;
+  }
+  .loadbar {
+    top: 35%;
+    left: 37%;
   }
 }
