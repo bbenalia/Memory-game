@@ -495,18 +495,21 @@ img.lose-mario {
   }
 }
 
-.matched {
-  -webkit-animation: matched 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-  animation: matched 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+.matched-right {
+  -webkit-animation: matched-right 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: matched-right 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+.matched-left {
+  -webkit-animation: matched-left 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: matched-left 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
-@keyframes matched {
+@keyframes matched-right {
   0% {
     -webkit-transform: translateZ(0) translateY(0) translateX(0);
     transform: translateZ(0) translateY(0) translateX(0);
     opacity: 1;
   }
-
   100% {
     -webkit-transform: translateZ(-1100px) translateY(-1000px)
       translateX(1000px);
@@ -515,17 +518,44 @@ img.lose-mario {
   }
 }
 
-@-webkit-keyframes matched {
+@-webkit-keyframes matched-right {
   0% {
     -webkit-transform: translateZ(0) translateY(0) translateX(0);
     transform: translateZ(0) translateY(0) translateX(0);
     opacity: 1;
   }
-
   100% {
     -webkit-transform: translateZ(-1100px) translateY(-1000px)
       translateX(1000px);
     transform: translateZ(-1100px) translateY(-1000px) translateX(1000px);
+    opacity: 0;
+  }
+}
+
+@keyframes matched-left {
+  0% {
+    -webkit-transform: translateZ(0) translateY(0) translateX(0);
+    transform: translateZ(0) translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-1100px) translateY(-1000px)
+      translateX(-1000px);
+    transform: translateZ(-1100px) translateY(-1000px) translateX(-1000px);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes matched-left {
+  0% {
+    -webkit-transform: translateZ(0) translateY(0) translateX(0);
+    transform: translateZ(0) translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-1100px) translateY(-1000px)
+      translateX(-1000px);
+    transform: translateZ(-1100px) translateY(-1000px) translateX(-1000px);
     opacity: 0;
   }
 }
