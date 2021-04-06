@@ -217,7 +217,6 @@ function youLose() {
   manageUserTime("#contentPlay", false);
   idChosen.splice(0, idChosen.length);
   setTime(gameTime());
-  // scoring();
   clearCurrentPlayer();
   //checkMatch stuff
   arrChosen = [];
