@@ -40,8 +40,8 @@ document.getElementById("open").addEventListener("click", function () {
  * @ Author:
  */
 function loading(){
-  swapTemplate("loading", "left_section");
-  //document.body.style.filter = "blur(4.5px)";
+  swapTemplate("loadingL", "left_section");
+  swapTemplate("loadingR", "right_section");
   document.body.className='blur';
 
   setTimeout("document.body.className='noblur'", settings.timeLoading);
