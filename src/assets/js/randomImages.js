@@ -12,6 +12,7 @@ import { playSound, toggleMuteSound } from "./sound.js";
 import { swapTemplate } from "./templates.js";
 import { setScoreRanking, resetTime, isTimeRununing } from "./scoring.js";
 import { handleStartAgain } from "./game.js";
+import { randomClass } from "./random_class.js";
 
 let arrSorted = [];
 /*
@@ -48,7 +49,7 @@ export function playGame() {
     const div = document.createElement("div");
     setTimeout(() => {
       // add cover image
-      img.setAttribute("src", "./assets/img/imagen4.png");
+      //img.setAttribute("src", "./assets/img/imagen4.png");
       // add eventListeners
       img.addEventListener("click", flipImage, true);
       // set time count score
@@ -105,8 +106,11 @@ function checkMatch() {
     arrChosen[0].name === arrChosen[1].name &&
     arrChosen[0].id !== arrChosen[1].id
   ) {
-    images[arrChosen[0].id].classList.add("matched");
-    images[arrChosen[1].id].classList.add("matched");
+    // random animation
+    const rClass = randomClass("matched-right", "matched-left");
+    images[arrChosen[0].id].classList.add(rClass);
+    images[arrChosen[1].id].classList.add(rClass);
+    // remove event listener 
     images[arrChosen[0].id].removeEventListener("click", flipImage, true);
     images[arrChosen[1].id].removeEventListener("click", flipImage, true);
     // store matched id's

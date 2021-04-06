@@ -57,6 +57,7 @@ body > main {
   top: 0;
   left: 0;
   margin: 1%;
+  color: var(--nav-color);
 }
 .fa-volume-up:before {
   content: "\f028";
@@ -64,6 +65,7 @@ body > main {
   top: 0;
   left: 0;
   margin: 1%;
+  color: var(--nav-color);
 }
 #left_section {
   position: relative;
@@ -169,7 +171,7 @@ body > main {
   outline: none;
   cursor: pointer;
 }
-div.icon{
+div.icon {
   position: absolute;
   top: 1rem;
   left: 1rem;
@@ -178,7 +180,7 @@ div.icon{
 }
 div.volume-show {
   visibility: visible;
-} 
+}
 /* 
 =======================================
  ! Scoring styles
@@ -295,7 +297,7 @@ select {
   appearance: none;
   outline: 0;
   box-shadow: none;
-  
+
   border: 0 !important;
   background: #fff;
   color: var(--main-color);
@@ -318,19 +320,19 @@ select::-ms-expand {
   border: 6px double var(--main-color);
   background: #fff;
   overflow: hidden;
-  border-radius: .25em;
+  border-radius: 0.25em;
 }
 
 select {
   flex: 1;
-  padding: 0 .5em;
+  padding: 0 0.5em;
   color: var(--main-color);
   cursor: pointer;
 }
 
 /* Arrow */
 .select::after {
-  content: '\25BC';
+  content: "\25BC";
   position: absolute;
   top: -50%;
   right: 0;
@@ -339,9 +341,9 @@ select {
   color: var(--main-color);
   cursor: pointer;
   pointer-events: none;
-  -webkit-transition: .25s all ease;
-  -o-transition: .25s all ease;
-  transition: .25s all ease;
+  -webkit-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
+  transition: 0.25s all ease;
 }
 
 /* Transition */
@@ -546,18 +548,21 @@ img.run-mario {
   }
 }
 
-.matched {
-  -webkit-animation: matched 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-  animation: matched 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+.matched-right {
+  -webkit-animation: matched-right 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: matched-right 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+.matched-left {
+  -webkit-animation: matched-left 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: matched-left 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
-@keyframes matched {
+@keyframes matched-right {
   0% {
     -webkit-transform: translateZ(0) translateY(0) translateX(0);
     transform: translateZ(0) translateY(0) translateX(0);
     opacity: 1;
   }
-
   100% {
     -webkit-transform: translateZ(-1100px) translateY(-1000px)
       translateX(1000px);
@@ -566,17 +571,44 @@ img.run-mario {
   }
 }
 
-@-webkit-keyframes matched {
+@-webkit-keyframes matched-right {
   0% {
     -webkit-transform: translateZ(0) translateY(0) translateX(0);
     transform: translateZ(0) translateY(0) translateX(0);
     opacity: 1;
   }
-
   100% {
     -webkit-transform: translateZ(-1100px) translateY(-1000px)
       translateX(1000px);
     transform: translateZ(-1100px) translateY(-1000px) translateX(1000px);
+    opacity: 0;
+  }
+}
+
+@keyframes matched-left {
+  0% {
+    -webkit-transform: translateZ(0) translateY(0) translateX(0);
+    transform: translateZ(0) translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-1100px) translateY(-1000px)
+      translateX(-1000px);
+    transform: translateZ(-1100px) translateY(-1000px) translateX(-1000px);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes matched-left {
+  0% {
+    -webkit-transform: translateZ(0) translateY(0) translateX(0);
+    transform: translateZ(0) translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-1100px) translateY(-1000px)
+      translateX(-1000px);
+    transform: translateZ(-1100px) translateY(-1000px) translateX(-1000px);
     opacity: 0;
   }
 }
