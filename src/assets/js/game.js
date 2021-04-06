@@ -8,6 +8,8 @@ import { settings } from "./data.js";
 loading();
 
 setTimeout(() => {
+  document.body.className='noblur';
+  document.getElementById('loading').style.display='none'; 
 // initial template
 swapTemplate("registration", "left_section");
 // ranking template
@@ -43,8 +45,13 @@ function loading(){
   swapTemplate("loadingL", "left_section");
   swapTemplate("loadingR", "right_section");
   document.body.className='blur';
+  swapTemplate("preLoading", "loading");
 
-  setTimeout("document.body.className='noblur'", settings.timeLoading);
+  /*setTimeout("document.body.className='noblur'", settings.timeLoading);*/
+  /*setTimeout(() => {
+    document.body.className='noblur';
+    document.getElementById('loading').style.display='none';
+  }, settings.timeLoading);*/
 }
 
 
