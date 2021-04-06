@@ -197,7 +197,7 @@ export function manageUserTime(TagPlace, activate) {
     timeInterval = setInterval(() => {
       const currentTime = gameTime();
       pTime.textContent = `Current time: ${convertTime(currentTime)}`;
-    }, 1000);
+    }, 300);
     v.appendChild(pName);
     v.appendChild(pTime);
     // timeStart();
