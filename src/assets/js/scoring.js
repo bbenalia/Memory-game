@@ -2,18 +2,28 @@ import { settings } from "./data.js";
 
 const arrUser = [];
 const objUser = {};
-let startDate;
+let startDate = 0;
 
 /*
- * This function handles user time
+ * This functions handles user time
  */
 export function timeStart() {
   startDate = new Date();
 }
-
 export function gameTime() {
-   let time = new Date() - startDate;
+  let time;
+  if (startDate) {
+    time = new Date() - startDate;
+  } else {
+    time = 0;
+  }
   return time;
+}
+export function resetTime() {
+  startDate = 0;
+}
+export function isTimeRununing() {
+  return startDate !== 0;
 }
 
 /*

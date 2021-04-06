@@ -10,7 +10,7 @@ import {
 import { arrImg, settings } from "./data.js";
 import { playSound, toggleMuteSound } from "./sound.js";
 import { swapTemplate } from "./templates.js";
-import { setScoreRanking } from "./scoring.js";
+import { setScoreRanking, resetTime, isTimeRununing } from "./scoring.js";
 import { handleStartAgain } from "./game.js";
 
 let arrSorted = [];
@@ -52,7 +52,9 @@ export function playGame() {
       // add eventListeners
       img.addEventListener("click", flipImage, true);
       // set time count score
-      timeStart();
+      if (!isTimeRununing()) {
+        timeStart();
+      }
     }, settings.timePrePlay);
     // other atributtes
     img.setAttribute("src", element.img);
@@ -164,13 +166,14 @@ function removeImagesClickEvent() {
  */
 export function checkVictory() {
   if (idChosen.length === arrSorted.length) {
-    manageUserTime("#contentPlay", false);
     // reset ids matched
     idChosen.splice(0, idChosen.length);
     // calculate time
     setTime(gameTime());
     //  view scoring
     scoring();
+    // reset time
+    manageUserTime("#contentPlay", false);
   }
 }
 
@@ -185,17 +188,22 @@ export function manageUserTime(TagPlace, activate) {
     v = d.querySelector(TagPlace),
     pTime = d.createElement("p"),
     pName = d.createElement("p");
+  const name = getCurrentPlayer().name;
+
+  pName.textContent = `Player: ${name}`;
+  pTime.textContent = `Current time: 0s`;
+
   if (activate) {
     timeInterval = setInterval(() => {
-      const name = getCurrentPlayer().name;
       const currentTime = gameTime();
-      pName.innerHTML = `Player: ${name}`;
       pTime.textContent = `Current time: ${convertTime(currentTime)}`;
     }, 1000);
     v.appendChild(pName);
     v.appendChild(pTime);
+    // timeStart();
   } else {
     clearInterval(timeInterval);
+    resetTime();
   }
 }
 
