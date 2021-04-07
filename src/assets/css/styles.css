@@ -18,7 +18,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* overflow-x: hidden; */
 }
 body {
   width: 100vw;
@@ -100,7 +99,6 @@ body > main {
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* justify-content: center; */
   height: 100%;
   width: 100%;
   padding-top: 20px;
@@ -201,7 +199,6 @@ ol.list-styles > li {
   display: flex;
   position: relative;
   counter-increment: counterName;
-  /* justify-content: space-around; */
 }
 ol.list-styles > li p:nth-child(1) {
   position: absolute;

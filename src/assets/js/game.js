@@ -1,5 +1,5 @@
 import { swapTemplate } from "./templates.js";
-import { playGame, checkVictory, manageUserTime } from "./randomImages.js";
+import { playGame, checkVictory } from "./randomImages.js";
 import { getScoring, setName, setScoreRanking } from "./scoring.js";
 import { playSound, toggleMuteSound } from "./sound.js";
 import { settings } from "./data.js";
@@ -46,14 +46,7 @@ function loading(){
   swapTemplate("loadingR", "right_section");
   document.body.className='blur';
   swapTemplate("preLoading", "loading");
-
-  /*setTimeout("document.body.className='noblur'", settings.timeLoading);*/
-  /*setTimeout(() => {
-    document.body.className='noblur';
-    document.getElementById('loading').style.display='none';
-  }, settings.timeLoading);*/
 }
-
 
 /*
  * This starts the game and
@@ -147,7 +140,6 @@ export function handleStartAgain() {
   setTimeout(() => {
     // listener to start game boton
     document.getElementById("btnStart").addEventListener("click", startGame);
-    // unmute sound
   }, 1000);
 }
 

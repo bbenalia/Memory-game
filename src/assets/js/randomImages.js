@@ -8,7 +8,7 @@ import {
   clearCurrentPlayer,
 } from "./scoring.js";
 import { arrImg, settings } from "./data.js";
-import { playSound, toggleMuteSound } from "./sound.js";
+import { playSound } from "./sound.js";
 import { swapTemplate } from "./templates.js";
 import { setScoreRanking, resetTime, isTimeRununing } from "./scoring.js";
 import { handleStartAgain } from "./game.js";
@@ -61,7 +61,6 @@ export function playGame() {
     img.setAttribute("src", element.img);
     img.setAttribute("data-id", i);
     img.setAttribute("alt", "mario cover");
-    // img.addEventListener("click", flipImage);
     div.appendChild(img);
     board.appendChild(div);
   });
@@ -110,7 +109,7 @@ function checkMatch() {
     const rClass = randomClass("matched-right", "matched-left");
     images[arrChosen[0].id].classList.add(rClass);
     images[arrChosen[1].id].classList.add(rClass);
-    // remove event listener 
+    // remove event listener
     images[arrChosen[0].id].removeEventListener("click", flipImage, true);
     images[arrChosen[1].id].removeEventListener("click", flipImage, true);
     // store matched id's
@@ -145,7 +144,6 @@ function checkMatch() {
  */
 function addImagesClickEvent() {
   const images = document.querySelectorAll("img[data-id]");
-  //
   images.forEach((element) => {
     if (!idChosen.includes(element.dataset.id)) {
       element.addEventListener("click", flipImage, true);
@@ -204,7 +202,6 @@ export function manageUserTime(TagPlace, activate) {
     }, 300);
     v.appendChild(pName);
     v.appendChild(pTime);
-    // timeStart();
   } else {
     clearInterval(timeInterval);
     resetTime();
